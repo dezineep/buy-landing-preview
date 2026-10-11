@@ -1,0 +1,70 @@
+/* BUY · ORDER STATUS group — Figma 925-3325 (placed), 781-2949 (packed), 786-5443 (dispatched), 983-2725 (delivered).
+   All sizes in 412-wide design px. Every rule is scoped under .bo / .bo-*. */
+
+/* page body: Figma "Container" — 381 wide column, 24px between blocks */
+.bo-body { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 0 16px; }
+/* placed / packed / dispatched keep the header inside "Order Info" (8px gap); .ba-head already gives 24 */
+.bo:not(.st-delivered) .ba-head { padding-bottom: 8px; }
+
+/* Order Info: illustration, chip, heading + copy, red timestamp — gap 8 */
+.bo-info { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; text-align: center; }
+.bo-ill { display: block; flex: none; max-width: none; }
+.bo-ill.placed { width: 130px; height: 104px; }
+.bo-ill.ride { width: 151px; height: 115.2px; margin-right: -21px; } /* artwork overflows its 130px frame to the right */
+.bo-ill.box { width: 191.5px; height: 124px; }
+.bo-ill { animation: bo-in .6s cubic-bezier(.34, 1.56, .64, 1) both; }
+@keyframes bo-in { from { transform: scale(.6); opacity: 0; } }
+.ba-static .bo-ill { animation: none; }
+
+.bo-chip { display: inline-flex; align-items: center; justify-content: center; padding: 8px 16px; border-radius: 32px; background: rgba(165, 34, 38, .1); color: var(--r, #a52226); font-size: 12px; font-weight: 500; line-height: 1.1; letter-spacing: -0.24px; white-space: nowrap; }
+.st-delivered .bo-chip { min-width: 135px; height: 29px; font-weight: 400; }
+
+.bo-msg { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.st-dispatched .bo-msg { gap: 8px; }
+.bo .bo-h { margin: 0; font-size: 20px; font-weight: 500; line-height: 1.3; letter-spacing: -0.4px; color: #040404; }
+.st-delivered .bo-h { line-height: 1.2; color: #000; }
+.bo .bo-p { margin: 0; max-width: 349px; font-size: 14px; font-weight: 400; line-height: 1.6; letter-spacing: -0.28px; color: #929292; }
+.st-placed .bo-p { max-width: 295px; }
+.bo .bo-small { margin: 0; font-size: 12px; font-weight: 500; line-height: 1.2; letter-spacing: -0.12px; color: var(--r, #a52226); white-space: nowrap; }
+
+/* buttons: 16px apart, full width */
+.bo-btns { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+
+/* assigned delivery partner (786:5625) */
+.bo-partner { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; width: 100%; }
+.bo .bo-partner-h { margin: 0; font-size: 12px; font-weight: 500; line-height: 1.1; letter-spacing: -0.24px; color: #000; }
+.bo-pcard { display: flex; flex-direction: column; gap: 16px; width: 100%; padding: 8px; border: 1px solid #ececec; border-radius: 15px; background: linear-gradient(90deg, rgba(165, 34, 38, .05), rgba(165, 34, 38, .02)); }
+.bo-pmain { display: flex; align-items: center; gap: 8px; }
+.bo-pav { flex: none; width: 56px; height: 77px; }
+.bo-pinfo { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.bo-ptop { display: flex; align-items: flex-start; gap: 8px; }
+.bo-pname { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.bo-pname b { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.16px; color: #2c2c2c; }
+.bo-pname small { font-size: 12px; line-height: 1.6; letter-spacing: -0.12px; color: #827f7f; }
+.bo .bo-call { flex: none; display: flex; align-items: center; padding: 8px 16px; border: 0; border-radius: 35px; background: rgba(165, 34, 38, .1); cursor: pointer; }
+.bo-call img { width: 24px; height: 24px; }
+.bo .bo-pat { margin: 0; font-size: 12px; font-weight: 500; line-height: 1.3; letter-spacing: -0.12px; color: #00a900; white-space: nowrap; }
+.bo .bo-out { margin: 0; display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: 10px; background: #f9e1e2; font-size: 12px; line-height: 1.1; letter-spacing: -0.12px; color: #3a3a3a; white-space: nowrap; }
+.bo-out img { flex: none; width: 16px; height: 16px; }
+
+/* Order Summary card (983:2834) — also used by the next-launch screens, so nothing here depends on .bo */
+.bo-sum { display: flex; flex-direction: column; align-items: stretch; gap: 8px; width: 100%; padding: 8px; border: 1px solid #dfdfdf; border-radius: 15px; background: #fff; text-align: left; }
+.bo-sum-top { display: flex; flex-direction: column; gap: 8px; }
+.bo-sum .bo-sum-h { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.1; letter-spacing: -0.28px; color: #000; white-space: nowrap; }
+.bo-items { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.bo-it, .bo-it-row { display: flex; align-items: center; gap: 4px; min-width: 0; max-width: 100%; font-size: 12px; font-weight: 400; line-height: 1.1; letter-spacing: -0.12px; color: #7a7a7a; white-space: nowrap; }
+.bo-it-row { gap: 8px; }
+.bo-it i, .bo-it-row em { flex: none; display: inline-flex; align-items: center; padding: 4px 8px; border-radius: 16px; background: #edecec; font-style: normal; color: #7a7a7a; font-size: 12px; letter-spacing: -0.12px; }
+.bo-it i { font-weight: 500; line-height: 1; }
+.bo-it-row em { font-weight: 400; line-height: 1.1; }
+.bo-sum .ba-div.dash { margin: 0 0 -1px; } /* Figma lines are 0-height: they add no space */
+.bo-row { display: flex; align-items: flex-start; gap: 8px; padding: 8px 0; }
+.bo-row > img { flex: none; width: 30px; height: 30px; align-self: center; }
+.bo-row-t { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; align-self: center; }
+.bo-row-t b { font-size: 14px; font-weight: 600; line-height: 1.1; letter-spacing: -0.28px; color: #000; white-space: nowrap; }
+.bo-row-t small { font-size: 10px; font-weight: 400; line-height: 1.6; color: #8e8e8e; overflow-wrap: anywhere; }
+.bo-row.addr .bo-row-t small { max-width: 220px; }
+.bo-sum .bo-copy { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; height: 34px; padding: 6px 12px; border: 1px solid var(--r, #a52226); border-radius: 25px; background: transparent; color: var(--r, #a52226); font-size: 12px; font-weight: 500; line-height: 1.1; letter-spacing: -0.12px; white-space: nowrap; cursor: pointer; }
+.bo-sum .bo-copy:active { background: rgba(165, 34, 38, .08); }
+/* delivered frame uses Medium for the summary labels */
+.st-delivered .bo-sum .bo-sum-h, .st-delivered .bo-row-t b { font-weight: 500; }

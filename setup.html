@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Create Your BUY Store — Free, Zero Commission</title>
+<meta name="description" content="Set up your own BUY online store in a minute — add your store name, logo, banner and link. Zero commission, payments and refunds handled by Modulus Seventeen.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/svg+xml" href="assets/m17/logo-buy.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css?v=5">
+<link rel="stylesheet" href="css/buy.css?v=5">
+<link rel="stylesheet" href="css/setup.css?v=5">
+</head>
+<body class="su-body" data-stage="intro">
+<header class="su-bar">
+  <a class="su-back" href="index.html" aria-label="Back to home"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M12 4l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back</span></a>
+  <a class="su-brand" href="index.html"><img src="assets/m17/logo-buy.svg" width="72" height="36" alt="BUY"></a>
+  <ol class="su-prog" aria-label="Progress"><li class="on"><i>1</i><span>Start</span></li><li><i>2</i><span>Store details</span></li><li><i>3</i><span>Go live</span></li></ol>
+  <a class="su-try" href="experience.html">Try BUY as a customer</a>
+</header>
+
+<!-- STAGE 1: intro -->
+<section class="su-stage su-intro" aria-label="Start with BUY">
+  <div class="su-intro-wrap">
+    <div class="su-intro-art">
+      <div class="su-scene" id="suScene" role="img" aria-label="Pixel animation: a sweet shop gets an order on the phone, a rider delivers it by scooter and the customer receives it at the door"></div>
+      <ol class="sc-steps" id="scSteps" aria-hidden="true">
+        <li data-k="shop"><i data-px="store"></i>Your shop</li>
+        <li data-k="order"><i data-px="phone"></i>Order in</li>
+        <li data-k="ride"><i data-px="scooter"></i>On the way</li>
+        <li data-k="door"><i data-px="house"></i>Delivered</li>
+      </ol>
+    </div>
+    <div class="su-intro-copy">
+      <h1>Start with <span class="t-red">BUY</span></h1>
+      <p class="su-lead">Set up your own online store in about a minute.</p>
+      <h2>Sell online, commission-free</h2>
+      <p class="su-muted">Customers browse and order directly from you — no marketplace, no commission. Grow your business easily.</p>
+      <ul class="su-perks">
+        <li><i class="su-pi" data-px="store"></i><div><b>Your own online store</b><small>Customers order directly from you</small></div></li>
+        <li><i class="su-pi" data-px="coin"></i><div><b>Zero commission</b><small>You keep 100% of your earnings</small></div></li>
+        <li><i class="su-pi" data-px="cart"></i><div><b>More sales, less effort</b><small>Reach more customers online</small></div></li>
+        <li><i class="su-pi" data-px="card"></i><div><b>Accept payments online</b><small>UPI and cards, settled in T+2 days</small></div></li>
+      </ul>
+      <div class="su-dock">
+        <button class="su-btn" id="startBtn" type="button">Set Up My BUY Store <svg class="su-arr" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <p class="su-fine">Free to set up · Takes about a minute · Nothing is uploaded in this demo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAGE 2: store form -->
+<section class="su-stage su-form-stage" aria-label="Create your BUY store">
+  <form class="su-form" id="suForm" novalidate>
+    <div class="su-form-h">
+      <div>
+        <h1>Create Your BUY Store</h1>
+        <p>Add name, logo, banner and set link for your store</p>
+      </div>
+      <div class="su-guide" aria-live="polite"><div class="su-guide-doll" id="guideDoll" aria-hidden="true"></div><p id="guideSay">Let’s build your store! Start with your store name.</p></div>
+    </div>
+
+    <div class="su-form-grid">
+      <div class="su-col">
+        <div class="su-media">
+          <label class="su-banner" id="bannerBox">
+            <input type="file" accept="image/*" id="bannerIn" hidden>
+            <span class="su-banner-empty"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><rect x="2.5" y="3.5" width="15" height="13" rx="2.5" fill="none" stroke="#a52226" stroke-width="1.5"/><circle cx="7.5" cy="8" r="1.6" fill="#a52226"/><path d="M3 14l4.5-4 3.5 3 2.5-2 3.5 3" fill="none" stroke="#a52226" stroke-width="1.5"/></svg>Add Banner</span>
+            <img id="bannerImg" alt="">
+            <span class="su-banner-acts"><button type="button" id="bannerChange"><i data-px="pencil"></i>Change</button><button type="button" id="bannerRemove"><i data-px="trash"></i>Remove</button></span>
+          </label>
+          <label class="su-logo-up" id="logoBox">
+            <input type="file" accept="image/*" id="logoIn" hidden>
+            <img id="logoImg" alt="">
+            <span class="su-logo-empty"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.8l1.2-2h5l1.2 2h1.8A2.5 2.5 0 0 1 20 8.5v8a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5z" fill="none" stroke="#a52226" stroke-width="1.5"/><circle cx="12" cy="12.5" r="3.3" fill="none" stroke="#a52226" stroke-width="1.5"/></svg>Add Logo</span>
+          </label>
+          <p class="su-media-note" id="logoNote">Uploading Logo is mandatory</p>
+        </div>
+
+        <div class="su-field"><span class="su-lbl" id="catLbl">Store Category</span>
+          <span class="su-cats" id="cats" role="radiogroup" aria-labelledby="catLbl">
+            <button type="button" class="on" data-c="Sweet Shop"><i data-px="candy"></i>Sweets</button><button type="button" data-c="Home Kitchen"><i data-px="bowl"></i>Home kitchen</button><button type="button" data-c="Bakery"><i data-px="cake"></i>Bakery</button><button type="button" data-c="Kirana Store"><i data-px="cart"></i>Kirana</button><button type="button" data-c="Boutique"><i data-px="dress"></i>Boutique</button><button type="button" data-c="Restaurant"><i data-px="cloche"></i>Restaurant</button>
+          </span></div>
+        <p class="su-review"><i data-px="hourglass"></i><span>We manually review each store before it goes live. This usually takes <span class="nw">1–2 business days</span>.</span></p>
+      </div>
+
+      <div class="su-col">
+        <label class="su-field"><span class="su-lbl">Store Name <em>*</em></span>
+          <input id="nameIn" maxlength="40" placeholder="e.g. Madhuram Sweets" autocomplete="organization"></label>
+
+        <label class="su-field"><span class="su-lbl">Store URL <em>*</em></span>
+          <span class="su-url" id="urlBox"><b>modulusbuy.com/</b><input id="urlIn" maxlength="40" placeholder="add your url here" autocapitalize="none" spellcheck="false"><i class="su-url-ic" id="urlIc"></i></span>
+          <small class="su-hint" id="urlMsg">This will be your unique store link on BUY</small></label>
+
+        <label class="su-field"><span class="su-lbl">Store Helpline No. <em>*</em></span>
+          <span class="su-phone"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M5.5 2.5h2l1.2 3.6-1.6 1.2a10 10 0 0 0 5.6 5.6l1.2-1.6 3.6 1.2v2A2 2 0 0 1 15.5 16.5 13 13 0 0 1 3.5 4.5a2 2 0 0 1 2-2z" fill="none" stroke="#555" stroke-width="1.4" stroke-linejoin="round"/></svg><b>+91</b><input id="phoneIn" inputmode="numeric" maxlength="10" placeholder="78454 12456" autocomplete="tel-national"></span>
+          <small class="su-hint" id="phoneMsg"></small></label>
+
+      </div>
+    </div>
+
+    <div class="su-dock su-form-dock">
+      <p class="su-missing" id="missing"></p>
+      <button class="su-btn" id="submitBtn" type="submit" disabled>Submit Details</button>
+    </div>
+  </form>
+</section>
+
+<!-- STAGE 3: celebration + quests -->
+<section class="su-stage su-done" aria-label="Your store is ready">
+  <div class="su-confetti" id="conf" aria-hidden="true"></div>
+  <div class="su-done-hero">
+    <div class="su-done-dolls" id="doneDolls" aria-hidden="true"></div>
+    <span class="su-lvl-badge">LEVEL UP!</span>
+    <h1>Woohoo! <span class="t-red">Your BUY store is ready.</span></h1>
+    <p class="su-lead">It goes live after a quick review (<span class="nw">1–2</span> business days). Share your link now — customers can bookmark it today.</p>
+    <div class="su-storecard">
+      <span class="pv-logo" id="dLogo">?</span>
+      <div class="su-sc-name"><b id="dName">Your store</b><small id="dCat">Sweet Shop</small></div>
+      <span class="su-review-chip"><i data-px="hourglass"></i>In review</span>
+      <div class="su-link"><span>modulusbuy.com/<b id="dUrl">your-store</b></span><button type="button" id="copyBtn"><i data-px="link"></i><span>Copy link</span></button><a id="waBtn" target="_blank" rel="noopener"><i data-px="chat"></i>Share on WhatsApp</a></div>
+    </div>
+    <div class="su-hero-get"><span class="su-get-t">Install <b>Modulus SELL</b> to unlock your store</span>
+      <div class="su-stores">
+        <a class="su-store-btn" id="appStore" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="#fff" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.1-1.2 2.9-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+        <a class="su-store-btn" id="playStore" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="#00d7fe" d="M3.6 2.3 13.3 12l-9.7 9.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1z"/><path fill="#ffce00" d="m16.6 15.3-3.3-3.3 3.3-3.3 3.8 2.2c1 .6 1 1.6 0 2.2z"/><path fill="#ff3a44" d="M16.6 15.3 13.3 12l-9.7 9.7c.4.2.9.2 1.4-.1z"/><path fill="#00f076" d="M16.6 8.7 5 2.4c-.5-.3-1-.3-1.4-.1l9.7 9.7z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="su-quests">
+    <div class="su-q-head">
+      <div><span class="su-q-eyebrow">Your store quest</span><h2>Level up your store</h2></div>
+      <div class="su-xp"><div class="su-xp-top"><b id="lvlName">Level 1 · New Shop</b><span id="xpTxt">0 / 600 XP</span></div><div class="su-xp-bar"><span id="xpBar"></span></div></div>
+    </div>
+    <ol class="su-qlist" id="qlist"></ol>
+  </div>
+
+  <div class="su-sell">
+    <div class="su-sell-copy">
+      <span class="su-q-eyebrow navy">Next quest · +150 XP</span>
+      <h2>Unlock your store with the <span class="t-blue">Modulus SELL</span> app</h2>
+      <p>Your BUY store is managed from SELL. Add your first product, accept orders, pack, assign delivery partners and track settlements — right from your phone.</p>
+      <ul class="su-sell-list">
+        <li><i data-px="box"></i>Add products with photos, prices &amp; pack sizes</li>
+        <li><i data-px="bell"></i>Get every BUY order instantly — already paid</li>
+        <li><i data-px="scooter"></i>Assign deliveries &amp; verify with OTP</li>
+        <li><i data-px="coin"></i>Track T+2 settlements, zero commission</li>
+      </ul>
+      <p class="su-fine">Already installed? Log in with <b id="dPhone">your helpline number</b> to see your store.</p>
+    </div>
+    <div class="su-sell-art">
+      <div class="su-fan">
+        <img src="assets/sell/sell-orders.jpg" alt="SELL app: online orders list" loading="lazy">
+        <img src="assets/sell/sell-home.jpg" alt="SELL app: home with earnings and recent orders" loading="lazy">
+        <img src="assets/sell/sell-detail.jpg" alt="SELL app: order details with delivery partner" loading="lazy">
+      </div>
+      <div class="su-sell-doll"><div id="sellDoll"></div><p class="su-sell-say">Install SELL to unlock your store! <i data-px="unlock"></i></p></div>
+    </div>
+  </div>
+</section>
+
+<script src="js/pixel.js?v=5"></script>
+<script src="js/setup-scene.js?v=5"></script>
+<script src="js/setup.js?v=5"></script>
+</body>
+</html>

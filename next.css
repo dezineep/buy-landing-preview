@@ -1,0 +1,43 @@
+/* BUY · NEXT group — Figma 851-1528 / 862-3008 / 862-3266. Scoped under .bn-* */
+.bn-body { display: flex; flex-direction: column; gap: 24px; padding: 0 16px 24px; }
+.bn-info { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.bn-box { width: 192px; height: 124px; }
+.bn-chip { display: inline-flex; align-items: center; height: 29px; padding: 0 16px; border-radius: 32px; background: rgba(165,34,38,.1); color: #a52226; font-size: 12px; line-height: 1.1; letter-spacing: -.24px; white-space: nowrap; }
+.bn-msg { display: flex; flex-direction: column; gap: 4px; }
+.bn-msg h3 { font-size: 20px; font-weight: 500; line-height: 1.2; letter-spacing: -.4px; color: #000; margin: 0; }
+.bn-msg p { font-size: 14px; line-height: 1.6; letter-spacing: -.28px; color: #929292; margin: 0; }
+.bn-dmg { display: flex; flex-direction: column; gap: 16px; padding: 8px; border: 1px solid #e7e7e7; border-radius: 15px; }
+.bn-dmg-t { display: flex; justify-content: space-between; gap: 8px; }
+.bn-dmg-t > img { width: 76px; height: 69px; object-fit: contain; flex: none; }
+.bn-dmg-t > div { width: 280px; display: flex; flex-direction: column; gap: 4px; }
+.bn-dmg b { color: #a52226; font-weight: 500; font-size: 15px; line-height: 1.2; letter-spacing: -.45px; white-space: nowrap; }
+.bn-dmg p { font-size: 12px; color: #8c8c8c; line-height: 1.6; letter-spacing: -.12px; margin: 0; }
+.bn-dmg-b { display: flex; gap: 8px; }
+.bn-dmg-b button { flex: 1 1 0; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 8px 16px; border: 1px solid #a52226; border-radius: 25px; background: none; color: #a52226; font-family: inherit; font-size: 12px; font-weight: 500; line-height: 1.1; letter-spacing: -.12px; white-space: nowrap; }
+.bn-dmg-b img { width: 14px; height: 14px; }
+.bn-warn { display: flex; gap: 8px; padding: 8px; border: 1px solid rgba(239,127,0,.3); border-radius: 22px; background: linear-gradient(90deg, rgba(239,127,0,.08), rgba(239,127,0,.02)); }
+.bn-warn > img { width: 61px; height: 62px; object-fit: cover; flex: none; }
+.bn-warn > div { display: flex; flex-direction: column; gap: 4px; }
+.bn-warn b { font-size: 14px; font-weight: 500; line-height: 1.4; letter-spacing: -.14px; color: #000; }
+.bn-warn p { font-size: 12px; color: #7f7f7f; line-height: 1.6; letter-spacing: -.12px; margin: 0; }
+.bn-warn i { font-style: normal; font-weight: 500; color: #4e4444; }
+.bn-warn em { font-style: normal; font-weight: 600; color: #a52226; }
+.bn-fld { display: flex; flex-direction: column; gap: 8px; }
+.bn-lbl { font-size: 14px; font-weight: 500; line-height: 1.2; letter-spacing: -.35px; color: #000; margin: 0; }
+.bn-lbl span { font-weight: 400; color: #a8a8a8; letter-spacing: -.28px; }
+.bn-lbl.sm { font-size: 12px; letter-spacing: -.3px; }
+.bn-select { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: #fff; border: 1px solid #e4e4e4; border-radius: 20px; font-size: 16px; line-height: 1.2; letter-spacing: -.4px; color: #323232; }
+.bn-select img { width: 18px; height: 18px; }
+.bn-lbl2 { display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; line-height: 1.1; letter-spacing: -.35px; color: #2c2c2c; }
+.bn-lbl2 u { font-size: 12px; color: #a52226; letter-spacing: -.12px; text-underline-offset: 3px; }
+.bn-row { display: flex; align-items: center; gap: 8px; padding: 9px; border-radius: 20px; border: 1px solid #ededed; background: #fff; }
+.bn-row.on { padding: 8px; border: 0; background: rgba(165,34,38,.05); }
+.bn-row > img { width: 50px; height: 52px; border-radius: 12px; object-fit: cover; flex: none; }
+.bn-row > div { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.bn-row p { font-size: 12px; font-weight: 500; line-height: 1.1; letter-spacing: -.24px; color: #4d4d4d; margin: 0; }
+.bn-row small { font-size: 10px; line-height: 1.5; letter-spacing: -.2px; color: #939292; }
+.bn-uploads { display: flex; gap: 10px; padding: 10px; border: 1px solid #e2e2e2; border-radius: 20px; }
+.bn-uploads > img { width: 80px; height: 80px; border-radius: 12px; object-fit: cover; }
+.bn-upl { display: flex; padding: 25px; border-radius: 15px; background: rgba(165,34,38,.1); }
+.bn-upl img { width: 30px; height: 30px; }
+.bn .ba-foot { padding-top: 16px; }

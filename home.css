@@ -1,0 +1,121 @@
+/* BUY · HOME group — Figma 537:1093 (home), 1815:3843 (in-cart card, product count row), 1978:4316 (cart pill),
+   759:2114 (pill "Congratulations !"), 733:3092 (pill "You have unlocked …"). Design width 412; --sat = safe-area top.
+   Every rule is scoped under .bh / .bh-* (plus the pill container hook .ba-pill:has(> .bh-…)). */
+
+/* ---------- store-name bar: sticky from the start, transparent over the banner, white once the banner is behind it ---------- */
+.bh { position: relative; }
+.bh-top {
+  position: sticky; top: 0; z-index: 5; display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
+  height: calc(var(--sat, 0px) + 84px); margin-bottom: calc(-84px - var(--sat, 0px)); padding: calc(var(--sat, 0px) + 32px) 16px 0;
+  background: rgba(255, 255, 255, 0); transition: background-color .3s ease, box-shadow .3s ease;
+}
+.bh-top.solid { background: #fff; }
+.bh-store { display: flex; align-items: center; gap: 8px; min-width: 0; height: 42px; text-align: left; }
+.bh-logo { flex: none; width: 40px; height: 40px; border: 1px solid #000; border-radius: 500px; object-fit: cover; background: #fff; }
+.bh-store-t { display: flex; flex-direction: column; justify-content: center; gap: 4px; min-width: 0; }
+.bh-store-t b { display: flex; align-items: center; gap: 5px; font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.48px; color: #000; white-space: nowrap; }
+.bh-store-t b img { flex: none; width: 16px; height: 16px; }
+.bh-store-t small { display: flex; align-items: center; gap: 2px; font-size: 10px; line-height: 1.1; letter-spacing: -0.2px; color: #777; white-space: nowrap; }
+.bh-store-t small img { flex: none; width: 10px; height: 10px; }
+.bh-btns { display: flex; align-items: center; gap: 8px; flex: none; }
+
+/* ---------- banner carousel (Figma 537:1096: 412 x 190, bottom radius 25; dots 537:1292 37 x 15, 16px above the bottom) ---------- */
+.bh-hero { position: relative; z-index: 0; height: calc(var(--sat, 0px) + 190px); border-radius: 0 0 25px 25px; overflow: hidden; background: #f9e1e2; }
+.bh-hero-track { display: flex; height: 100%; transition: transform .7s cubic-bezier(.22, 1, .36, 1); }
+.bh-hero-track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; }
+/* Figma's banner carries a soft pink haze behind the store bar */
+.bh-hero::before { content: ""; position: absolute; z-index: 1; inset: 0 0 auto; height: calc(var(--sat, 0px) + 96px); background: linear-gradient(180deg, rgba(249, 225, 226, .9) 0%, rgba(249, 225, 226, .55) 55%, rgba(249, 225, 226, 0) 100%); pointer-events: none; }
+.bh-dots {
+  position: absolute; z-index: 2; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; gap: 4px; padding: 4px;
+  border-radius: 7.5px; background: rgba(255, 255, 255, .47); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+}
+.bh-dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(217, 217, 217, .57); transition: background-color .3s; }
+.bh-dots i.on { background: #fff; }
+
+/* ---------- "Deliver to" row (Figma 747:1272) + search (1979:4406): each pins below the store bar in turn ---------- */
+.bh-deliver {
+  position: sticky; top: calc(var(--sat, 0px) + 84px); z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  margin-top: 22px; padding: 0 16px 8px; background: #fff;
+}
+.bh-addr { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; text-align: left; }
+.bh-addr small { font-size: 10px; line-height: 1.2; letter-spacing: -0.1px; color: #aba7a7; }
+.bh-addr > span { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.bh-addr b { font-size: 14px; font-weight: 400; line-height: 1.2; letter-spacing: -0.14px; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bh-chev { flex: none; display: block; width: 14px; height: 14px; transform: rotate(90deg); }
+.bh-chev img { width: 14px; height: 14px; }
+.bh-days { flex: none; display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 20px; background: rgba(1, 174, 15, .1); font-size: 12px; font-weight: 500; line-height: 1.1; letter-spacing: -0.36px; color: #01ae0f; white-space: nowrap; }
+.bh-days img { width: 14px; height: 14px; }
+.bh-searchrow { position: sticky; top: calc(var(--sat, 0px) + 125px); z-index: 4; padding: 0 16px 16px; background: #fff; transition: box-shadow .3s; }
+.bh-searchrow.pinned { box-shadow: 0 8px 10px -8px rgba(0, 0, 0, .14); }
+.bh .bh-search { height: auto; padding: 16px; }
+.bh .bh-search input { height: 17px; line-height: 1.2; -webkit-appearance: none; appearance: none; }
+.bh .bh-search input::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+/* ---------- product count + sort (Figma 1815:3859) ---------- */
+.bh-count { display: flex; align-items: center; justify-content: space-between; height: 18px; margin: 0 16px 16px; }
+.bh-count b { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.48px; color: #000; }
+.bh-count button { display: flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 500; line-height: 1.1; letter-spacing: -0.42px; color: var(--r); }
+.bh-count button img { width: 18px; height: 18px; }
+
+/* ---------- product grid + card (Figma 537:1129, in-cart 1815:3906) ---------- */
+.bh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 16px; }
+.bh-card {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; padding: 9.141px;
+  border: 1.141px solid rgba(0, 0, 0, .09); border-radius: 20px; background: #fff; transition: background-color .3s, border-color .3s;
+}
+.bh-card.in-cart { background: rgba(165, 34, 38, .05); border-color: rgba(165, 34, 38, .79); }
+.bh-card-img { align-self: stretch; height: 140px; border-radius: 12px; overflow: hidden; cursor: pointer; }
+.bh-card-img > img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.bh-card-img:hover > img { transform: scale(1.04); }
+.bh-card-name { align-self: stretch; font-size: 12px; font-weight: 500; line-height: 1.5; letter-spacing: -0.24px; color: #696969; cursor: pointer; }
+.bh-card .ba-pricebox { cursor: pointer; }
+/* + button / stepper sits on the image's bottom-left corner (Figma left 8.86, top 111.86 inside the card) */
+.bh-card-ctl { position: absolute; z-index: 1; left: 8.86px; top: 111.86px; }
+.bh-empty { grid-column: 1 / -1; padding: 40px 16px; text-align: center; font-size: 14px; line-height: 1.4; color: #777; }
+
+/* ---------- floating cart pill content (container .ba-pill is styled in base.css) ---------- */
+.bh-pill { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 8px; text-align: left; }
+.bh-pill.enter { animation: bhPillIn .45s cubic-bezier(.22, 1, .36, 1) both; }
+.bh-pill-l { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.bh-pill-t { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; white-space: nowrap; }
+.bh-pill-t b { font-size: 14px; font-weight: 500; line-height: 1.1; letter-spacing: -0.28px; color: #585858; }
+.bh-pill-t small { font-size: 10px; line-height: 1.1; letter-spacing: -0.2px; color: #a0a0a0; }
+.bh-pill-t strong { font-weight: 500; color: #000; }
+.bh-pill-sep { flex: none; width: 1px; height: 28px; background: repeating-linear-gradient(180deg, #dedede 0 3px, transparent 3px 5px); }
+.bh-pill-r { display: flex; align-items: center; gap: 24px; }
+.bh-pill-c { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 31px; line-height: 1.1; color: #4d4d4d; white-space: nowrap; }
+.bh-pill-c b { font-size: 14px; font-weight: 600; letter-spacing: -0.28px; }
+.bh-pill-c small { font-size: 8px; letter-spacing: -0.16px; }
+.bh-thumbs { display: flex; align-items: center; }
+.bh-thumbs i { flex: none; width: 25.429px; height: 25.429px; margin-right: -4.238px; border: 1.06px solid #fff; border-radius: 50%; overflow: hidden; background: #fff; }
+.bh-thumbs i img { width: 100%; height: 100%; object-fit: cover; }
+.bh-thumbs em { flex: none; display: grid; place-items: center; width: 25.429px; height: 25.429px; border-radius: 54px; background: #fbeaea; font-size: 12.714px; font-style: normal; font-weight: 500; line-height: 1.1; letter-spacing: -0.25px; color: var(--r); }
+.bh-thumbs i:last-child { margin-right: 0; }
+
+/* pill messages: same 47px inner height as the default pill so the swap never jumps */
+.bh-pill-msg { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; width: 100%; height: 47px; padding: 0 8px; border-radius: 19px; overflow: hidden; text-align: center; white-space: nowrap; }
+/* Figma 759:2114 (motion: scooter x -157 -> 161 over 71% of the loop, text springs from scale 0 between 26% and 66%) */
+.ba-pill:has(> .bh-congrats) { border-color: #000; box-shadow: var(--hard); }
+.bh-congrats b { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.32px; color: #01ae0f; animation: bhCongratsT 1.3s linear both; }
+.bh-congrats-ic { position: absolute; left: calc(50% - 12px); top: calc(50% - 12px); width: 24px; height: 24px; translate: 161px 0; animation: bhCongratsIc 1.3s linear both; }
+@keyframes bhCongratsIc { 0% { translate: -157px 0; animation-timing-function: cubic-bezier(.403, 0, .259, 1); } 71.09%, 100% { translate: 161px 0; } }
+@keyframes bhCongratsT {
+  0%, 26.38% { scale: 0; animation-timing-function: linear(0, .0188, .0679, .1374, .2195, .308, .3978, .4856, .5686, .6452, .7142, .7753, .8283, .8735, .9113, .9423, .9671, .9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, .9997, .9995, .9993, .9992, .9992, .9992, .9992, .9993, .9993); }
+  65.79%, 100% { scale: 1; }
+}
+/* Figma 733:3092 */
+.bh-saved { animation: bhMsgIn .4s cubic-bezier(.22, 1, .36, 1) both; }
+.bh-saved span { font-size: 12px; font-weight: 500; line-height: 1.1; letter-spacing: -0.24px; color: #585858; }
+.bh-saved em { font-style: normal; color: #01ae0f; }
+.bh-saved small { font-size: 10px; line-height: 1.1; letter-spacing: -0.2px; color: #a0a0a0; }
+.bh-saved strong { font-weight: 500; color: #000; }
+@keyframes bhMsgIn { from { opacity: 0; transform: translateY(10px); } }
+@keyframes bhPillIn { from { opacity: 0; transform: translateY(8px); } }
+
+/* ---------- sort sheet (no Figma frame: built from the sheet atoms + Figma radio colours) ---------- */
+.bh-sortl { display: flex; flex-direction: column; padding: 0 16px 8px; }
+.bh-sortl button { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; padding: 16px 0; border-bottom: 1px dashed #e4e4e4; font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.32px; color: #585858; transition: color .2s; }
+.bh-sortl button:last-child { border-bottom: 0; }
+.bh-sortl button.on { color: #000; }
+.bh-sortl i { flex: none; width: 20px; height: 20px; border: 1.5px solid #c9c9c9; border-radius: 50%; transition: border .2s; }
+.bh-sortl .on i { border: 6px solid var(--r); }

@@ -1,0 +1,84 @@
+/* BUY · PRODUCT group — Figma: Product details 694:1251, footer after add 698:1473, quick view 1217:2705 / 1217:2734.
+   Every rule is scoped under .bp* (the quick-view modal container is targeted through :has(> .bp-qv)). */
+
+/* ---------- product details body: gallery 330 -> 16 -> info (gaps 24) -> 24 -> add more ---------- */
+.bp-body { display: flex; flex-direction: column; gap: 16px; padding: 0 16px; }
+.bp-gal { position: relative; height: 330px; border-radius: 15px; overflow: hidden; }
+.bp-track { display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.bp-track::-webkit-scrollbar { display: none; }
+.bp-track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: center; }
+/* gallery dots: Figma carousel dots (37x15 for 3) — translucent white pill, 7px dots, 11px pitch */
+.bp-dots { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); display: flex; gap: 4px; padding: 4px; border-radius: 8px; background: rgba(255, 255, 255, .47); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
+.bp-dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(217, 217, 217, .57); transition: background .2s; }
+.bp-dots i.on { background: #fff; }
+
+.bp-info { display: flex; flex-direction: column; gap: 24px; }
+.bp-row { display: flex; align-items: flex-start; gap: 8px; }
+.bp-nm { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.bp-name { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.32px; color: #696969; }
+
+/* variant pills (694:1292 selected / 698:1547 with Best Value badge) */
+.bp-var { display: flex; flex-direction: column; gap: 8px; }
+.bp-lbl { font-size: 12px; font-weight: 500; line-height: 1.1; letter-spacing: -0.24px; color: #696969; white-space: nowrap; }
+.bp-vpills { display: flex; flex-wrap: wrap; gap: 8px; }
+.bp-vpill { position: relative; flex: none; display: flex; align-items: center; justify-content: center; height: 40px; padding: 0 20px; border: 1px solid #8a8a8a !important; border-radius: 10px !important; background: #fff !important; box-shadow: 2px 3px 0 #8a8a8a; color: #8a8a8a !important; font-size: 16px; font-weight: 600; line-height: 1.1; letter-spacing: -0.4px; white-space: nowrap; transition: transform .15s, box-shadow .15s; }
+.bp-vpill.on { border-color: var(--r) !important; box-shadow: 2px 3px 0 var(--r); color: var(--r) !important; }
+.bp-vpill:active { transform: translate(1px, 2px); box-shadow: 1px 1px 0 #8a8a8a; }
+.bp-vpill em { position: absolute; top: -11px; left: calc(50% + .67px); transform: translateX(-50%); padding: 4px 8px; border: 1px solid var(--g); border-radius: 33px; background: #e1ffe3; color: var(--g); font-size: 8px; font-style: normal; font-weight: 500; line-height: 1.1; letter-spacing: -0.2px; white-space: nowrap; }
+
+/* description + Read more (694:1306) */
+.bp-dsc { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.bp-dsc-t { display: flex; flex-direction: column; gap: 4px; align-self: stretch; }
+.bp-h { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.48px; color: #717171; }
+.bp-desc { font-size: 14px; font-weight: 400; line-height: 1.6; letter-spacing: -0.28px; color: #a5a5a5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.bp-desc.open { -webkit-line-clamp: unset; display: block; }
+.bp-more { display: flex; align-items: center; gap: 4px; color: var(--r) !important; font-size: 14px; font-weight: 500; line-height: 1.1; letter-spacing: -0.42px; white-space: nowrap; }
+.bp-more img { width: 16px; height: 16px; transition: transform .2s; }
+.bp-more.open img { transform: rotate(180deg); }
+
+/* "Add more to your order" (694:1358): title 16/500 black, 8px, cards 160 wide gap 8 */
+.bp-addmore { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.bp-h2 { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.32px; color: #000; }
+.bp-hlist { display: flex; align-items: stretch; gap: 8px; margin: 0 -16px; padding: 0 16px 4px; overflow-x: auto; scrollbar-width: none; scroll-padding: 0 16px; scroll-snap-type: x proximity; }
+.bp-hlist::-webkit-scrollbar { display: none; }
+.bp-mini { position: relative; flex: 0 0 160px; width: 160px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 9.141px; border: 1.141px solid rgba(0, 0, 0, .09); border-radius: 20px; background: #fff; scroll-snap-align: start; }
+.bp-mini-img { position: relative; align-self: stretch; height: 140px; border-radius: 12px; cursor: pointer; }
+.bp-mini-img > img { width: 100%; height: 100%; border-radius: 12px; object-fit: cover; }
+/* + pill sits over the image's bottom-left corner (Figma left 8.86 / top 111.86 inside the card) */
+.bp-mini-ctl { position: absolute; left: -1.42px; top: 101.58px; display: flex; }
+.bp-mini-name { align-self: stretch; font-size: 12px; font-weight: 500; line-height: 1.5; letter-spacing: -0.24px; color: #696969; cursor: pointer; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.bp-mini > div:last-child { display: flex; flex-direction: column; gap: 4px; cursor: pointer; }
+.bp-mini > div:last-child .ba-off { margin-top: 0; }
+
+/* ---------- footer (694:1483 / 698:1473) ---------- */
+.bp-foot { align-items: flex-start; }
+.bp-foot .ba-btn.soft { gap: 8px; }
+
+/* ---------- quick-view modal (1217:2705): 380 wide, radius 24, p 16, gap 8 ---------- */
+.ba-modal:has(> .bp-qv) { border-radius: 24px; padding: 16px; }
+.bp-qv { display: flex; flex-direction: column; }
+.bp-qv-media { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.bp-qv-media .bp-track { align-self: stretch; height: 347px; border-radius: 16px 16px 0 0; }
+.bp-qv-fade { position: absolute; left: 0; right: 0; top: 259px; height: 88px; pointer-events: none; background: linear-gradient(0deg, #fff 13.551%, rgba(255, 255, 255, 0) 90.654%); }
+.bp-qv-x { position: absolute; top: 4px; right: 4px; width: 60px; height: 42px; display: grid; place-items: center; border: 1px solid var(--r) !important; border-radius: 16px !important; background: #fff !important; transition: transform .15s; }
+.bp-qv-x:active { transform: scale(.94); }
+.bp-qv-x img { width: 20px; height: 20px; }
+.bp-qv-dots { display: flex; gap: 4px; height: 15px; padding: 4px; }
+.bp-qv-dots i { width: 7px; height: 7px; border-radius: 50%; background: #d9d9d9; transition: background .2s; }
+.bp-qv-dots i.on { background: var(--r); }
+.bp-qv-info { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+.bp-qv-name { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.32px; color: #696969; cursor: pointer; }
+.bp-qv-b { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.bp-qv-b .ba-pricebox { min-width: 0; }
+.bp-qv-ctl { flex: none; display: flex; min-width: max-content; }
+.bp-qv-b .ba-pricebox { flex: 1 1 auto; }
+/* Figma quick-view button / stepper: py 10 px 20 (39px tall), radius 20, no stroke, hard shadow 2px 4px; never wraps */
+.bp-qv-ctl .ba-btn, .bp-qv-ctl .ba-step.big { height: 39px; padding: 0 20px; border-radius: 20px; white-space: nowrap; flex: none; width: auto; min-width: max-content; }
+.bp-qv-ctl .ba-btn { border: 0 !important; }
+
+/* guard against unscoped .ba-off rules from other group files: keep the foundation chip (8px, no margin) */
+.bp .ba-off, .bp-qv .ba-off { font-size: 8px; line-height: 1.1; margin: 0; }
+/* fix round 1 */
+.bp-foot .ba-btn { font-weight: 500; }
+.bp-qv-media, .bp-qv-media .bp-track, .bp-qv-media .bp-track img { border-bottom: 0 !important; box-shadow: none !important; }
+.bp-qv-media hr { display: none; }

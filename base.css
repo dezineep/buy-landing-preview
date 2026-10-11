@@ -1,0 +1,216 @@
+/* BUY app base — root container, screen transitions, sheet/modal containers, toast, notification, pill wrapper
+   and the shared atoms. Values are taken from the Figma file (FBuShw2V6BDtlsMePanuS7, frames 747:1311 cart,
+   537:1093 home, 593:1779 variants sheet, 925:3325 order placed, 698:1241 product details, 1815:3906 in-cart card).
+   Design size 412 x 892; --sat = safe-area top for the phone camera island (30 in phone frames, 0 in the lab).
+
+   ATOMS (screen files reuse these; never restyle them globally from a group file)
+   .ba-head > .ba-back + .ba-head-t(b, small) [+ .right]   sticky header, pink->white Figma gradient, 24px gap below
+   .ba-btn [.wide .grow .soft .outline]  52px, radius 20, hard shadow 2px 4px; never wraps; em = count badge
+   .ba-rbtn [.navy .soft]                40px round white button, red border, hard shadow 2px 3px
+   .ba-tag / .ba-off                     8px chips (size / % OFF)
+   .ba-price [.big]  + .ba-pricebox      12px price + struck MRP (big: 25px); pricebox = column gap 4 for price + .ba-off
+   .ba-add / .ba-oplus                   38x30 pill + buttons (pink / white)
+   .ba-step [.big] / .ba-ostep           filled red stepper (30px; big = 52px button) / outlined stepper
+   .ba-ring                              42px offer ring (size with --ring)
+   .ba-sh-h(.ba-sh-t b small) + .ba-x    sheet title row + 60x42 pink close
+   .ba-sheet / .ba-modal / .ba-foot      containers; sheet + foot draw the iOS home bar
+   .ba-search .ba-of .ba-div[.dash] .ba-amt .ba-ic14 .ba-toast .ba-notif */
+.ba {
+  --r: #a52226; --rd: #6f1418; --pk: #f4c8c9; --pk2: #fbeaea; --pk3: rgba(165, 34, 38, .1);
+  --g: #01ae0f; --or: #e88b00; --mt: #696969; --mt2: #9b9b9b; --ln: #ddd; --ln2: rgba(0, 0, 0, .09);
+  --hard: 2px 3px 0 #000; --hard-btn: 2px 4px 0 #000;
+  position: relative; width: 412px; height: 892px; overflow: hidden; background: #fff;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif; color: #000; text-align: left;
+  -webkit-font-smoothing: antialiased; letter-spacing: -0.01em;
+}
+/* resets weigh one class (.ba :where(el)) so they beat the site's element rules, while every atom / group class
+   declared after them still wins */
+.ba :where(*), .ba :where(*)::before, .ba :where(*)::after { box-sizing: border-box; }
+.ba :where(button) { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; padding: 0; letter-spacing: inherit; text-align: inherit; }
+.ba :where(img, svg) { display: block; max-width: none; }
+.ba :where(p, h3) { margin: 0; }
+.ba :where(input, select) { font: inherit; }
+.ba-screens { position: absolute; inset: 0; }
+.ba-scr { position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; background: #fff; transition: transform .38s cubic-bezier(.22, 1, .36, 1), opacity .3s; padding-bottom: 110px; }
+.ba-scr::-webkit-scrollbar { display: none; }
+.ba-scr.in-r { transform: translateX(100%); }
+.ba-scr.in-l { transform: translateX(-30%); opacity: 0; }
+.ba-scr.out-l { transform: translateX(-30%); opacity: 0; }
+.ba-scr.out-r { transform: translateX(100%); }
+.ba-static .ba-scr { transition: none; }
+.ba-static *, .ba-static *::before, .ba-static *::after { animation: none !important; transition: none !important; }
+.ba-pad { padding: 0 16px; }
+
+/* ---------- header (Figma: top 16, back 60x42, gap 8, title 20/500, 24px to content; frame bg renders #f9e7e8 at the top -> #fff at 98px) ---------- */
+.ba-head {
+  position: sticky; top: 0; z-index: 3; display: flex; align-items: center; gap: 8px;
+  padding: calc(var(--sat, 0px) + 16px) 16px 24px;
+  background: linear-gradient(180deg, #f9e7e8 var(--sat, 0px), #fff calc(var(--sat, 0px) + 98px));
+}
+/* the Figma frame gradient runs 16px past the header: the screen carries the same gradient (scrolling with the
+   content), so at rest the header melts into the page exactly like Figma; when scrolled the header keeps its own copy */
+.ba-scr:has(.ba-head) { background: linear-gradient(180deg, #f9e7e8 var(--sat, 0px), #fff calc(var(--sat, 0px) + 98px)) local, #fff; }
+.ba-head-t { display: flex; flex-direction: column; justify-content: center; gap: 4px; min-width: 0; }
+.ba-head-t b { font-size: 20px; font-weight: 500; line-height: 1.1; letter-spacing: -0.4px; color: #000; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ba-head-t small { font-size: 12px; line-height: 1.1; letter-spacing: -0.24px; color: #777; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ba-head .right, .ba-head-t + * { margin-left: auto; }
+.ba-back, .ba-x { flex: none; width: 60px; height: 42px; border-radius: 50px !important; background: var(--pk3) !important; display: grid; place-items: center; transition: transform .2s; }
+.ba-back:active, .ba-x:active { transform: scale(.94); }
+.ba-back img, .ba-x img { width: 20px; height: 20px; }
+
+/* ---------- round header buttons (Figma 537:1279-1286: p 9, 1px border, hard shadow 2px 3px) ---------- */
+.ba-rbtn { flex: none; width: 40px; height: 40px; border-radius: 999px !important; background: #fff !important; border: 1px solid var(--r) !important; box-shadow: var(--hard); display: grid; place-items: center; transition: transform .15s, box-shadow .15s; }
+.ba-rbtn:active { transform: translate(1px, 2px); box-shadow: 1px 1px 0 #000; }
+.ba-rbtn img { width: 20px; height: 20px; }
+.ba-rbtn.navy { width: auto; padding: 0 9px; border-color: #261f8e !important; }
+.ba-rbtn.navy img { width: 29px; height: 20px; object-fit: contain; }
+/* pink soft square-ish button (product share, call): 60x42 like .ba-back */
+.ba-rbtn.soft { width: 60px; height: 42px; border-radius: 50px !important; background: var(--pk3) !important; border: 0 !important; box-shadow: none; }
+.ba-rbtn.soft:active { transform: scale(.94); }
+
+/* ---------- chips ---------- */
+.ba-tag, .ba-off { display: inline-flex; align-items: center; justify-content: center; align-self: flex-start; flex: none; padding: 4px 8px; border-radius: 33px; font-size: 8px; font-weight: 400; line-height: 1.1; white-space: nowrap; }
+.ba-tag { background: var(--pk3); color: var(--r); letter-spacing: -0.16px; }
+.ba-off { background: rgba(1, 174, 15, .1); color: var(--g); letter-spacing: 0; }
+
+/* ---------- price (12/600 + 12/400 #b0b0b0 struck by a 1px line inset 2px, like Figma "Line 82") ---------- */
+.ba-price { display: flex; gap: 4px; align-items: center; white-space: nowrap; }
+.ba-price b { font-size: 12px; font-weight: 600; line-height: 1.2; letter-spacing: 0; color: #000; }
+.ba-price s { position: relative; font-size: 12px; font-weight: 400; line-height: 1.2; letter-spacing: 0; color: #b0b0b0; text-decoration: none; }
+.ba-price s::after { content: ""; position: absolute; left: 2px; right: 2px; top: 8px; height: 1px; border-radius: 1px; background: #b0b0b0; }
+.ba-price.big { align-items: flex-end; }
+.ba-price.big b { font-size: 25px; line-height: 1.2; }
+.ba-price.big s { margin-bottom: 4px; }
+.ba-pricebox { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+:not(.ba-pricebox) > .ba-price + .ba-off { margin-top: 4px; }
+
+/* ---------- buttons (Figma 925:3519 / 925:3524: py 16 px 20, radius 20, 16/500 -0.48, hard shadow 2px 4px) ---------- */
+.ba-btn { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 20px; border-radius: 20px !important; background: var(--r) !important; color: #fff !important; border: 1px solid var(--r) !important; font-size: 16px; font-weight: 500 !important; line-height: 1.2; letter-spacing: -0.48px; text-align: center; white-space: nowrap; box-shadow: var(--hard-btn); transition: transform .15s, box-shadow .15s, opacity .2s; }
+.ba-btn:active { transform: translate(1px, 2px); box-shadow: 1px 2px 0 #000; }
+.ba-btn:disabled { opacity: .4; cursor: not-allowed; transform: none; box-shadow: var(--hard-btn); }
+.ba-btn.wide { width: 100%; }
+.ba-btn.soft { background: var(--pk3) !important; color: var(--r) !important; }
+.ba-btn.outline { background: #fff !important; color: var(--r) !important; }
+.ba-btn > img { width: 20px; height: 20px; flex: none; }
+.ba-btn em { flex: none; font-style: normal; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 51px; background: var(--r); color: #f6e9ea; font-size: 12px; font-weight: 500; line-height: 1.1; letter-spacing: -0.24px; }
+
+.ba-sub { font-size: 14px; color: var(--mt); margin: 18px 0 8px; }
+.ba-sub.dark { color: #000; font-size: 16px; font-weight: 500; letter-spacing: -0.32px; }
+.ba-sub span { color: #aaa; }
+.ba-sub.left { align-self: stretch; text-align: left; color: #000; }
+.ba-sub.row { display: flex; justify-content: space-between; }
+.ba-sub u { color: var(--r); font-size: 13px; }
+.ba-link { display: block; margin: 10px auto 0; color: var(--r); font-size: 12px; font-weight: 500; line-height: 1.2; letter-spacing: -0.36px; }
+.ba-empty { padding: 30px 10px; text-align: center; color: #999; font-size: 14px; grid-column: 1 / -1; }
+.ba-err { color: #d13b40; font-size: 12px; min-height: 16px; margin: 6px 0; }
+.ba-note { font-size: 12px; color: #888; line-height: 1.5; margin: 6px 0; }
+
+/* ---------- sticky bottom bar (Figma "Submit Order Button": pt 24 px 16 pb 48, radius 20 20 0 0, shadow 0 -2 7.1 .15) ---------- */
+.ba-foot { position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 24px 16px 48px; background: #fff; border-radius: 20px 20px 0 0; box-shadow: 0 -2px 7.1px rgba(0, 0, 0, .15); }
+.ba-foot::after { content: ""; position: absolute; left: 50%; bottom: 9.5px; width: 147px; height: 5.3px; margin-left: -73.5px; border-radius: 3px; background: #000; pointer-events: none; }
+.ba-scr:has(.ba-foot) { padding-bottom: 0; }
+.ba-scr .ba-foot { position: sticky; margin-top: 24px; }
+/* amount block on the left of a foot: 25/600 total + 12px red underlined link */
+.ba-amt { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; }
+.ba-amt b { font-size: 25px; font-weight: 600; line-height: 1.2; letter-spacing: 0; color: #000; white-space: nowrap; }
+.ba-amt button, .ba-amt small { font-size: 12px; font-weight: 500; line-height: 1.1; letter-spacing: -0.12px; color: var(--r); white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+/* ---------- steppers ---------- */
+/* filled red (Figma 1815:3939): px 9 py 5 incl. 1px stroke, gap 8, icons 20, count 16/500 white */
+.ba-step { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 30px; padding: 0 8px; border-radius: 999px; background: var(--r); color: #fff; border: 1px solid var(--r); box-shadow: var(--hard); }
+.ba-step b { font-size: 16px; font-weight: 500; line-height: 1; min-width: 9px; text-align: center; color: #fff; }
+.ba-step button { display: grid; place-items: center; width: 20px; height: 20px; flex: none; }
+.ba-step img { width: 20px; height: 20px; }
+/* big (Figma 698:1486): a primary button with - n + : 52px, radius 20, gap 16, count 16/600, hard shadow 2px 4px */
+.ba-step.big { height: 52px; padding: 0 20px; gap: 16px; border-radius: 20px; box-shadow: var(--hard-btn); }
+.ba-step.grow, .ba-btn.grow { flex: 1 1 0; }
+.ba-step.big b { font-size: 16px; font-weight: 600; line-height: 1.2; letter-spacing: -0.48px; }
+/* outlined (Figma 747:1337): white, red stroke, px 9 py 5, gap 10, icons 20, count 20/500 red */
+.ba-ostep { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 30px; padding: 0 8px; border: 1px solid var(--r); border-radius: 999px; background: #fff; box-shadow: var(--hard); }
+.ba-ostep button { display: grid; place-items: center; width: 20px; height: 20px; flex: none; color: var(--r) !important; font-size: 20px; line-height: 1; }
+.ba-ostep img { width: 20px; height: 20px; }
+.ba-ostep b { font-size: 20px; font-weight: 500; line-height: 1; color: var(--r); min-width: 11px; text-align: center; }
+/* + buttons (Figma 593:1828 white / 537:1162 pink): 38x30 incl. stroke, icon 20 */
+.ba-oplus, .ba-add { flex: none; display: grid; place-items: center; width: 38px; height: 30px; border: 1px solid var(--r) !important; border-radius: 999px !important; box-shadow: var(--hard); color: var(--r) !important; font-size: 20px; line-height: 1; transition: transform .15s, box-shadow .15s; }
+.ba-oplus { background: #fff !important; }
+.ba-add { background: var(--pk) !important; }
+.ba-oplus:active, .ba-add:active, .ba-step button:active, .ba-ostep button:active { transform: translate(1px, 2px); }
+.ba-oplus:active, .ba-add:active { box-shadow: 1px 1px 0 #000; }
+.ba-oplus img, .ba-add img { width: 20px; height: 20px; }
+
+/* ---------- search (Figma 1979:4406: p 16, 1px #ddd, radius 20, icon 16, 14px #aba7a7) ---------- */
+.ba-search { display: flex; align-items: center; gap: 4px; padding: 0 16px; height: 49px; border: 1px solid var(--ln); border-radius: 20px; background: #fff; }
+.ba-search img { width: 16px; height: 16px; flex: none; }
+.ba-search input { flex: 1; min-width: 0; border: 0; outline: 0; font-size: 14px; line-height: 1.2; letter-spacing: -0.14px; background: none; color: #000; padding: 0; }
+.ba-search input::placeholder { color: #aba7a7; }
+
+/* ---------- floating cart pill wrapper (user spec: 38px above the bottom edge; Figma bottom 38.53) ---------- */
+.ba-pillwrap { position: absolute; z-index: 6; left: 50%; bottom: 38px; transform: translate(-50%, 140px); transition: transform .5s cubic-bezier(.34, 1.56, .64, 1); }
+.ba-pillwrap.on { transform: translate(-50%, 0); }
+/* pill container (Figma 1992:3864): 355 wide, white, 1px black stroke, radius 20, p 8, hard shadow; rings inside are 31px.
+   Its content (K.R.pill / pillCongrats / pillSaved) is styled by the home group. */
+.ba-pill { position: relative; width: 355px; min-height: 48px; background: #fff; border: 1px solid #000; border-radius: 20px; box-shadow: var(--hard); --ring: 31px; }
+.ba-pill[data-state="congrats"] { border-color: var(--g); box-shadow: 2px 3px 0 var(--g); }
+.ba-conf { position: absolute; top: 50%; width: 7px; height: 7px; animation: baconf 1.1s cubic-bezier(.2, .6, .4, 1) forwards; pointer-events: none; }
+@keyframes baconf { to { transform: translate(var(--dx), var(--dy)) rotate(var(--r)); opacity: 0; } }
+
+/* ---------- offer ring (Figma 747:1471: 42px, track #dbdbdb 4px, progress red round cap; pill uses --ring: 31px) ---------- */
+.ba-ring { position: relative; flex: none; width: var(--ring, 42px); height: var(--ring, 42px); display: block; }
+.ba-ring > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ba-ring > svg circle:last-child { transition: stroke-dasharray .6s cubic-bezier(.22, 1, .36, 1); }
+.ba-ring-ic { position: absolute; left: 50%; top: 50%; width: 57.1%; height: 57.1%; transform: translate(-50%, -50%); background: var(--r); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.ba-ring[data-kind="pct"] .ba-ring-ic { width: 47.6%; height: 47.6%; }
+.ba-ring[data-kind="gift"] .ba-ring-ic { left: -1.2%; top: 0; width: 101.2%; height: 102.4%; transform: none; -webkit-mask-composite: source-in; mask-composite: intersect; }
+.ba-ring.done .ba-ring-ic { background: var(--g); }
+
+/* ---------- offer card (Figma 747:1470: 1px #eaeaea, radius 15, p 8, gap 8) ---------- */
+.ba-of { display: flex; align-items: center; gap: 8px; padding: 8px; border: 1px solid #eaeaea; border-radius: 15px; background: #fff; }
+.ba-of > div, .ba-of > span:not(.ba-ring) { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.ba-of b { display: block; font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.32px; color: #585858; }
+.ba-of small { font-size: 12px; line-height: 1.1; letter-spacing: -0.24px; color: #a0a0a0; }
+.ba-of small strong { font-weight: 500; color: #000; }
+.ba-of.done { border-color: rgba(1, 174, 15, .4); background: #f4fcf4; }
+
+/* ---------- dividers: Figma "Line 14" (red, fading at both ends) and "Line 89" (dashed #e4e4e4) ---------- */
+.ba-div { height: 1px; flex: none; align-self: stretch; background: url(../../assets/figma/base/divider-fade.svg) center / 100% 1px no-repeat; }
+.ba-div.dash { background: repeating-linear-gradient(90deg, #e4e4e4 0 8px, transparent 8px 14px); }
+
+/* 14px icon frame for the Figma copy glyph (12.54px, inset 1px top / .5px left) */
+.ba-ic14 { position: relative; display: inline-block; flex: none; width: 14px; height: 14px; }
+.ba-ic14 > img { position: absolute; left: .5px; top: 1px; width: 12.54px; height: 12.54px; }
+
+.ba-field { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; font-size: 13px; color: #222; }
+.ba-field input, .ba-field select { height: 52px; padding: 0 16px; border: 1px solid var(--ln); border-radius: 20px; font-size: 16px; outline: 0; background: #fff; color: #000; width: 100%; }
+.ba-field input:focus, .ba-field select:focus { border-color: var(--r); box-shadow: 0 0 0 3px rgba(165, 34, 38, .1); }
+.ba-field input::placeholder { color: #aaa; }
+
+/* ---------- sheets & modals (Figma 593:1779: radius 20 20 0 0, content inset 16, iOS home bar 147x5 9.5px from bottom) ---------- */
+.ba-layer { position: absolute; inset: 0; z-index: 20; pointer-events: none; }
+.ba-layer.on { pointer-events: auto; }
+.ba-dim { position: absolute; inset: 0; background: rgba(0, 0, 0, .45); opacity: 0; transition: opacity .3s; }
+.ba-layer.on .ba-dim { opacity: 1; }
+.ba-sheet { position: absolute; left: 0; right: 0; bottom: 0; max-height: 88%; overflow-y: auto; scrollbar-width: none; background: #fff; border-radius: 20px 20px 0 0; padding-bottom: 0; transform: translateY(100%); transition: transform .45s cubic-bezier(.22, 1, .36, 1); }
+.ba-sheet::-webkit-scrollbar { display: none; }
+.ba-sheet::after { content: ""; display: block; width: 147px; height: 5.3px; margin: 15px auto 10px; border-radius: 3px; background: #000; }
+.ba-layer.on .ba-sheet { transform: none; }
+.ba-sheet.bye, .ba-modal.bye { transform: translateY(100%); }
+.ba-modal { position: absolute; left: 16px; right: 16px; top: 50%; transform: translateY(-40%) scale(.9); opacity: 0; transition: transform .45s cubic-bezier(.34, 1.56, .64, 1), opacity .25s; background: #fff; border-radius: 20px; padding: 16px; }
+.ba-layer.on .ba-modal { transform: translateY(-50%); opacity: 1; }
+.ba-layer .ba-modal.bye { transform: translateY(-40%) scale(.9); opacity: 0; }
+/* sheet title row: 16px from the top, 24px to content; title 20/500, sub 12px #777, close 60x42 */
+.ba-sh-h { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 16px 24px; }
+.ba-sh-t { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.ba-sh-h b { display: block; font-size: 20px; font-weight: 500; line-height: 1.1; letter-spacing: -0.4px; color: #000; }
+.ba-sh-h small { display: block; font-size: 12px; line-height: 1.1; letter-spacing: -0.24px; color: #777; }
+.ba-modal > .ba-sh-h { padding: 0 0 16px; }
+
+/* ---------- notification banner + toast ---------- */
+.ba-notif { position: absolute; z-index: 30; left: 10px; right: 10px; top: calc(var(--sat, 0px) + 12px); transform: translateY(calc(-100% - var(--sat, 0px) - 24px)); transition: transform .5s cubic-bezier(.34, 1.4, .64, 1); }
+.ba-notif.on { transform: none; }
+.ba-notif button { display: flex; gap: 10px; align-items: center; width: 100%; padding: 10px 12px; border-radius: 20px; background: rgba(255, 255, 255, .97); border: 1px solid #000; box-shadow: var(--hard); text-align: left; }
+.ba-notif img { width: 36px; height: 36px; border-radius: 10px; object-fit: cover; flex: none; }
+.ba-notif span { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ba-notif b { display: block; font-size: 11px; line-height: 1.2; color: #777; font-weight: 500; }
+.ba-notif small { font-size: 13px; line-height: 1.3; color: #000; }
+.ba-toast { position: absolute; z-index: 40; left: 50%; bottom: 96px; transform: translate(-50%, 30px); opacity: 0; width: max-content; max-width: 340px; padding: 10px 16px; border-radius: 20px; background: #000; color: #fff; font-size: 13px; line-height: 1.3; letter-spacing: -0.2px; text-align: center; transition: transform .4s cubic-bezier(.34, 1.56, .64, 1), opacity .3s; pointer-events: none; }
+.ba-toast.on { opacity: 1; transform: translate(-50%, 0); }

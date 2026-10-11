@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modulus BUY — Your Neighbourhood Stores, One Tap Away</title>
+<meta name="description" content="BUY by Modulus Seventeen lets you order from local stores, home kitchens and online shops — pay online, track live and receive with an OTP. Zero commission for stores.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/svg+xml" href="assets/m17/logo-buy.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css?v=5">
+<link rel="stylesheet" href="css/buy.css?v=5">
+<link rel="stylesheet" href="css/next.css?v=5">
+<!--BUY-CSS-->
+<link rel="stylesheet" href="css/buy/base.css?v=5">
+<link rel="stylesheet" href="css/buy/home.css?v=5">
+<link rel="stylesheet" href="css/buy/sheets.css?v=5">
+<link rel="stylesheet" href="css/buy/product.css?v=5">
+<link rel="stylesheet" href="css/buy/variants.css?v=5">
+<link rel="stylesheet" href="css/buy/cart.css?v=5">
+<link rel="stylesheet" href="css/buy/address.css?v=5">
+<link rel="stylesheet" href="css/buy/order.css?v=5">
+<link rel="stylesheet" href="css/buy/orders.css?v=5">
+<link rel="stylesheet" href="css/buy/store.css?v=5">
+<link rel="stylesheet" href="css/buy/next.css?v=5">
+<!--/BUY-CSS-->
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <div class="brand-wrap">
+      <a class="brand" href="#top" aria-label="Modulus BUY home">
+        <img class="brand-logo" src="assets/m17/logo-buy.svg" width="80" height="40" alt="BUY">
+      </a>
+      <a class="by-m17" href="https://modulusseventeen.com" target="_blank" rel="noopener" title="Visit Modulus Seventeen">By Modulus Seventeen</a>
+    </div>
+    <nav class="main-nav" aria-label="Primary">
+      <a class="nav-link" href="#story">Story</a>
+      <a class="nav-link" href="#shoppers">For Shoppers</a>
+      <a class="nav-link" href="#stores">For Stores</a>
+      <a class="nav-link" href="#marketplace">Marketplace</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="nav-link" href="experience.html">Try BUY</a>
+      <a class="btn btn-red nav-cta" href="setup.html">List Your Store</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#story">The BUY Story</a>
+    <a href="#shoppers">For Shoppers</a>
+    <a href="#try">Try BUY</a>
+    <a href="#stores">For Stores</a>
+    <a href="#marketplace">Marketplace</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://modulusseventeen.com" target="_blank" rel="noopener">Modulus Seventeen ↗</a>
+    <a href="experience.html">Try the BUY Experience</a>
+    <a class="btn btn-red" href="setup.html">List Your Store</a>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-copy">
+    <a class="hero-chip" href="https://modulusseventeen.com" target="_blank" rel="noopener" data-reveal>
+      <span class="hc-buy">BUY</span><span class="hc-dot"></span><span>a Modulus Seventeen product</span>
+    </a>
+    <h1 class="hero-title" data-split>Your Neighbourhood Stores, <span class="t-red">One Tap Away</span></h1>
+    <div class="hero-lines" data-reveal style="--d:.25s">
+      <p><span class="serif">Order from your</span> <span class="pchip"><i></i><span class="chip-word" data-words="Home Kitchen,Sweet Shop,Bakery,Kirana Store,Boutique,Cloud Kitchen">Home Kitchen</span></span> <span class="serif">on BUY</span></p>
+      <p><span class="serif">Pay online,</span> <span class="pchip"><i></i><span class="chip-word" data-words="Track Live,Get It Delivered,Receive with OTP">Track Live</span></span></p>
+    </div>
+    <div class="hero-ctas" data-reveal style="--d:.4s">
+      <a class="btn btn-red btn-arrow magnetic" href="experience.html"><span>Try Experiencing BUY</span><span class="btn-arrow-circle"><img src="assets/m17/arrow-right.svg" width="24" height="24" alt=""></span></a>
+      <a class="btn btn-outline" href="setup.html">List Your Store in BUY</a>
+    </div>
+    <p class="hero-note" data-reveal style="--d:.5s">Shop a live demo sweet shop right in your browser — or create your own store for free. <a href="#story">Watch the story ↓</a></p>
+  </div>
+
+  <div class="hero-stage-wrap">
+    <div class="hero-stage" id="heroStage">
+      <svg class="hero-lines-svg" id="heroWires" aria-hidden="true"></svg>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-doll" id="heroDoll" role="img" aria-label="The BUY pixel doll, holding a red shopping bag and waving"></div>
+      <div class="hero-doll-tip" id="heroTip">Tap me!</div>
+
+      <article class="hc hc-1 bcard" data-k="1">
+        <div class="pc">
+          <div class="pc-img"><img src="assets/sweets/gulab-jamun.jpg" alt="Gulab jamun in a brass bowl"><span class="stepper"><img src="assets/fig/ic-minus-white.svg" alt=""><b>1</b><img src="assets/fig/ic-plus-white.svg" alt=""></span></div>
+          <div class="pc-info"><span class="tag pink">1 kg</span><p class="pc-name">Gulab Jamun · Madhuram Sweets</p><p class="pc-price"><b>₹460</b><s>₹560</s></p><span class="tag green">18% OFF</span></div>
+        </div>
+      </article>
+      <article class="hc hc-2 bcard" data-k="2">
+        <div class="mc"><img src="assets/fig/ring-freedel.svg" alt=""><div><b>Unlock free delivery</b><small>Shop for <strong>₹200</strong> more</small></div></div>
+      </article>
+      <article class="hc hc-3 bcard" data-k="3">
+        <div class="mc"><span class="ic-circle green"><img src="assets/fig/ic-check-green.svg" alt=""></span><div><b>Payment successful</b><small>₹1,250 · paid via UPI</small></div><img class="upi" src="assets/fig/upi.png" alt="UPI"></div>
+      </article>
+      <article class="hc hc-4 bcard" data-k="4">
+        <div class="oh"><img src="assets/m17/logo-buy.svg" alt="BUY" class="oh-logo"><b>Order Packed</b><span class="tag pink">OTP : 1451</span></div>
+        <p class="oh-sub">Arriving today, 7:30 PM</p>
+        <div class="steps4"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+      </article>
+      <article class="hc hc-5 bcard" data-k="5">
+        <div class="mc"><img class="av" src="assets/m17/avatar-delivery-sq.png" alt=""><div><b>Suresh yadav</b><small class="green-t">Assigned · on the way</small></div><span class="call"><img src="assets/fig/ic-phone-navy.svg" alt=""></span></div>
+      </article>
+      <article class="hc hc-6 bcard" data-k="6">
+        <div class="mc"><span class="ic-circle orange"><img src="assets/fig/ic-refund-orange.svg" alt=""></span><div><b>Refund ₹450 credited</b><small>Within 3 business days</small></div></div>
+      </article>
+    </div>
+  </div>
+  <p class="hero-caption" data-reveal><span>Explore</span><i></i><span>Order</span><i></i><span>Pay</span><i></i><span>Track</span><i></i><span>Receive with OTP</span></p>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>the <b>home baker</b> in <em>Pune</em></span><span>the <b>mithai shop</b> in <em>Mangaluru</em></span><span>the <b>boutique</b> in <em>Jaipur</em></span><span>the <b>tiffin service</b> in <em>Chennai</em></span><span>the <b>sweet shop</b> in <em>Kolkata</em></span><span>the <b>kirana</b> in <em>Indore</em></span><span>the <b>cloud kitchen</b> in <em>Hyderabad</em></span><span>the <b>florist</b> in <em>Kochi</em></span><span>the <b>pickle maker</b> in <em>Guntur</em></span>
+  </div>
+</div>
+
+<!-- ============ STORY ============ -->
+<section class="story" id="story">
+  <div class="sec-head">
+    <span class="eyebrow" data-reveal>The BUY Story</span>
+    <h2 class="sec-title" data-split>Life Before BUY, <span class="t-red">and After</span></h2>
+    <p class="sec-sub" data-reveal>Follow a little neighbourhood sweet shop, its customer and their delivery partner — from everyday chaos to calm. The story plays on its own; tap the arrow to skip ahead.</p>
+  </div>
+  <div class="story-track" id="storyTrack">
+    <div class="story-player">
+      <div class="story-cap">
+        <div class="sc-meta"><span class="sc-tag before">Before BUY</span><span class="sc-num">01 / 08</span></div>
+        <h3 class="sc-title">Orders Lost in the <em>DMs</em></h3>
+        <p class="sc-text"></p>
+        <div class="story-nav" aria-label="Story chapters"></div>
+      </div>
+      <div class="story-frame">
+        <div class="story-stage" id="storyWorld" role="img" aria-label="Pixel-art story: a store, a customer's home and a delivery scooter showing life before and after BUY"></div>
+        <span class="story-mood before">Before BUY</span>
+        <div class="story-progress" aria-hidden="true"><span></span></div>
+        <div class="story-ctrl">
+          <button class="story-play" id="storyPlay" type="button" aria-label="Pause story"><svg viewBox="0 0 16 16" width="14" height="14"><path class="i-pause" d="M4 3h3v10H4zM9 3h3v10H9z" fill="currentColor"/><path class="i-play" d="M4 2.5l9 5.5-9 5.5z" fill="currentColor"/></svg></button>
+          <button class="story-skip" id="storySkip" type="button" aria-label="Skip to the next scene"><span>Next scene</span><svg viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOR SHOPPERS ============ -->
+<section class="shoppers" id="shoppers">
+  <div class="sec-head">
+    <span class="eyebrow" data-reveal>For Shoppers</span>
+    <h2 class="sec-title" data-split>Shopping Local, <span class="t-red">Made Effortless</span></h2>
+    <p class="sec-sub" data-reveal>Everything you love about your neighbourhood store — the trust, the freshness, the familiar faces — now with the ease of ordering online.</p>
+  </div>
+
+  <div class="bento">
+    <article class="bx bx-explore span2" data-reveal>
+      <div class="bx-copy"><span class="bx-num">01</span><h3>Explore stores around you</h3><p>Browse real catalogues from the shops you already trust — photos, prices, pack sizes and offers, all on one neat page.</p></div>
+      <div class="bx-vis store-mini">
+        <div class="sm-banner"><img src="assets/sweets/banner-1.jpg" alt="A plate of assorted Indian sweets"><div class="sm-head"><img src="assets/sweets/logo.jpg" alt=""><div><b>Madhuram Sweets <img src="assets/fig/ic-verified.svg" alt="Verified"></b><small><img src="assets/fig/ic-pin.svg" alt="">Koramangala, Bengaluru</small></div></div></div>
+        <div class="sm-search"><img src="assets/fig/ic-search.svg" alt=""><span>Search for products, categories…</span></div>
+        <div class="sm-grid">
+          <div class="sm-p"><div class="sm-img"><img src="assets/sweets/gulab-jamun.jpg" alt="Gulab jamun"><button class="addb" aria-label="Add Gulab Jamun"><img src="assets/fig/ic-plus-red.svg" alt=""></button></div><span class="tag pink">1 kg</span><p>Gulab Jamun</p><b>₹460</b></div>
+          <div class="sm-p"><div class="sm-img"><img src="assets/sweets/rasgulla.jpg" alt="Rasgulla"><button class="addb" aria-label="Add Rasgulla"><img src="assets/fig/ic-plus-red.svg" alt=""></button></div><span class="tag pink">500 g</span><p>Bengali Rasgulla</p><b>₹220</b></div>
+          <div class="sm-p"><div class="sm-img"><img src="assets/sweets/mysore-pak.jpg" alt="Mysore pak"><button class="addb" aria-label="Add Mysore Pak"><img src="assets/fig/ic-plus-red.svg" alt=""></button></div><span class="tag pink">500 g</span><p>Mysore Pak</p><b>₹340</b></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="bx bx-qty" data-reveal style="--d:.08s">
+      <div class="bx-copy"><span class="bx-num">02</span><h3>Exactly how much you need</h3><p>Pick a pack size — or type your own quantity, like 800 g.</p></div>
+      <div class="bx-vis">
+        <div class="variants" role="group" aria-label="Quantity variants">
+          <button class="var on" data-p="65">100 g</button>
+          <button class="var" data-p="599"><span class="best">Best Value</span>1 kg</button>
+          <button class="var" data-p="custom">Custom</button>
+        </div>
+        <div class="qty-box"><span class="qty-val">100 g</span><span class="qty-price">₹65</span></div>
+      </div>
+    </article>
+
+    <article class="bx bx-pay" data-reveal style="--d:.16s">
+      <div class="bx-copy"><span class="bx-num">03</span><h3>Pay online, safely</h3><p>UPI, cards or net banking. Your money is held securely until the order is done.</p></div>
+      <div class="bx-vis">
+        <div class="pay-chips"><span class="chip on"><img src="assets/fig/upi.png" alt="">UPI</span><span class="chip">Card</span><span class="chip">Net banking</span></div>
+        <div class="pay-lock"><span class="lock px-ic" data-px="lock" aria-hidden="true"></span><div><b>₹1,250</b><small>Held in the Modulus Seventeen gateway</small></div></div>
+      </div>
+    </article>
+
+    <article class="bx bx-track" data-reveal>
+      <div class="bx-copy"><span class="bx-num">04</span><h3>Track every order</h3><p>From packed to on-the-way to delivered — always know where it is.</p></div>
+      <div class="bx-vis orders-mini">
+        <div class="om"><span class="st st-way"><img src="assets/fig/ic-truck-green.svg" alt="">On the Way</span><span class="otp-t">OTP: 4125</span><b>₹4,500</b></div>
+        <div class="om"><span class="st st-pack"><img src="assets/fig/ic-check-green.svg" alt="">Packed</span><b>₹1,250</b></div>
+        <div class="om"><span class="st st-rev"><img src="assets/fig/ic-clock-orange.svg" alt="">Order In Review</span><b>₹1,250</b></div>
+        <div class="om"><span class="st st-pack"><img src="assets/fig/ic-check-green.svg" alt="">Delivered</span><span class="st st-rev"><img src="assets/fig/ic-refund-orange.svg" alt="">Refund Pending</span><b>₹450</b></div>
+      </div>
+    </article>
+
+    <article class="bx bx-otp span2" data-reveal style="--d:.08s">
+      <div class="bx-copy"><span class="bx-num">05</span><h3>Safe &amp; assured, with a delivery OTP</h3><p>Every order gets its own delivery OTP. Share it with your delivery partner only when the parcel is in your hands — the order is marked delivered only after that. No mix-ups, no “it was delivered” when it wasn’t.</p></div>
+      <div class="bx-vis otp-vis">
+        <div class="otp-big" aria-label="Delivery OTP 4 1 2 5"><span>4</span><span>1</span><span>2</span><span>5</span></div>
+        <div class="otp-flow"><span>Out for delivery</span><i></i><span>You share OTP</span><i></i><span class="ok"><img src="assets/fig/ic-check-green.svg" alt="">Delivered</span></div>
+      </div>
+    </article>
+
+    <article class="bx bx-offers" data-reveal style="--d:.16s">
+      <div class="bx-copy"><span class="bx-num">06</span><h3>Offers that reward you</h3><p>Free delivery, discounts and free gifts as your cart grows.</p></div>
+      <div class="bx-vis offers-mini">
+        <div class="of"><img src="assets/fig/ring-freedel.svg" alt=""><div><b>Unlock free delivery</b><small>Shop for <strong>₹200</strong> more</small></div></div>
+        <div class="of"><img src="assets/fig/ring-discount.svg" alt=""><div><b>Unlock 50% Discount</b><small>Shop for <strong>₹900</strong> more</small></div></div>
+        <div class="of"><img src="assets/fig/ring-gift.svg" alt=""><div><b>Get a free umbrella</b><small>Shop for <strong>₹1200</strong> more</small></div></div>
+      </div>
+    </article>
+
+    <article class="bx bx-refund span2" data-reveal>
+      <div class="bx-copy"><span class="bx-num">07</span><h3>Refunds, handled for you</h3><p>If an order is cancelled — by you or by the store — Modulus Seventeen processes the refund to your original payment method within 3 business days. No chasing, no screenshots.</p></div>
+      <div class="bx-vis refund-flow">
+        <div class="rf"><span class="rf-i"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="#777" stroke-width="2.2" stroke-linecap="round"/></svg></span><b>Order cancelled</b><small>by you or the store</small></div>
+        <div class="rf-line"></div>
+        <div class="rf"><span class="rf-i o"><img src="assets/fig/ic-refund-orange.svg" alt=""></span><b>Refund initiated</b><small>automatically</small></div>
+        <div class="rf-line"></div>
+        <div class="rf"><span class="rf-i g"><img src="assets/fig/ic-check-green.svg" alt=""></span><b>Credited</b><small>within 3 days</small></div>
+      </div>
+    </article>
+
+    <article class="bx bx-again span2" data-reveal style="--d:.08s">
+      <div class="bx-copy"><span class="bx-num">08</span><h3>Your favourites, one tap away</h3><p>Loved last week’s order? Order it again in a single tap — same store, same items.</p></div>
+      <div class="bx-vis again-vis">
+        <div class="ag-items"><span><i>2×</i>Gulab Jamun</span><span><i>1×</i>Kesar Rajbhog</span><span><i>1×</i>Mithai Box</span></div>
+        <div class="ag-btns"><span class="ag-count"><b>3</b> Items</span><button class="ag-again" type="button">Order Again <img src="assets/fig/ic-chev-red.svg" alt=""></button></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ TRY IT ============ -->
+<section class="try" id="try">
+  <div class="sec-head">
+    <span class="eyebrow" data-reveal>Try It</span>
+    <h2 class="sec-title" data-split>Place an Order <span class="t-red">Yourself</span></h2>
+    <p class="sec-sub" data-reveal>Tap through a real BUY order — from browsing the store to the doorstep OTP. It’s a demo, so nothing is actually charged.</p>
+  </div>
+  <ol class="try-steps" id="trySteps" data-reveal>
+    <li class="on"><span>1</span>Browse &amp; add</li>
+    <li><span>2</span>Review cart</li>
+    <li><span>3</span>Pay online</li>
+    <li><span>4</span>Track &amp; receive</li>
+  </ol>
+  <div class="try-wrap">
+    <div class="try-side try-left" data-reveal="left">
+      <div class="try-doll" id="tryDoll"></div>
+      <div class="try-bubble" id="tryBubble">Tap <b>+</b> to add something tasty!</div>
+    </div>
+
+    <div class="try-phone-wrap" data-reveal="zoom">
+      <div class="try-phone" id="tryPhone" data-lenis-prevent>
+        <div class="try-notch" aria-hidden="true"></div>
+        <div class="try-screen"><div id="tryApp" role="region" aria-label="BUY app demo: Madhuram Sweets"></div></div>
+      </div>
+    </div>
+
+    <div class="try-side try-right" data-reveal="right">
+      <div class="try-explain" id="tryExplain">
+        <span class="te-num">Step 01</span>
+        <h3>Browse &amp; add</h3>
+        <p>Every store gets its own page with real products, prices and pack sizes. Tap <b>+</b> to add, and watch the free-delivery meter fill up.</p>
+      </div>
+      <a class="try-full" href="experience.html"><span><b>Want the whole journey?</b><small>Shop, pay, then pack &amp; deliver as the store — with OTP.</small></span><i><img src="assets/m17/arrow-right.svg" width="20" height="20" alt=""></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOR STORES ============ -->
+<section class="stores" id="stores">
+  <div class="stores-panel">
+    <div class="stores-pixels" aria-hidden="true"></div>
+    <div class="stores-head">
+      <span class="eyebrow light" data-reveal>For Store Owners</span>
+      <h2 class="sec-title light" data-split>More Customers. <span class="t-cream">Less Chaos.</span></h2>
+      <p class="sec-sub light" data-reveal>Your customers are already looking for you online. BUY gives your store its own page, collects payments, handles refunds and keeps every delivery accountable — so you can focus on what you do best.</p>
+    </div>
+    <div class="stats" data-reveal>
+      <div class="stat"><b><span data-count="0">0</span>%</b><span>commission on BUY orders</span></div>
+      <div class="stat"><b>T+<span data-count="2">2</span></b><span>days to your bank account</span></div>
+      <div class="stat"><b><span data-count="3">3</span>-day</b><span>refunds, handled by us</span></div>
+      <div class="stat"><b><span data-count="100">100</span>%</b><span>OTP-verified hand-overs</span></div>
+    </div>
+    <div class="feat-grid">
+      <article class="feat tilt" data-reveal><span class="feat-ic" data-icon="phone"></span><h3>Your own store link</h3><p>Share it in your Instagram bio, WhatsApp status or as a QR at the counter. Customers tap and order — no app hunting.</p></article>
+      <article class="feat tilt" data-reveal style="--d:.06s"><span class="feat-ic" data-icon="receipt"></span><h3>Orders, not DMs</h3><p>Every order arrives with items, quantities, address and payment — straight into SELL. No scrolling through chats.</p></article>
+      <article class="feat tilt" data-reveal style="--d:.12s"><span class="feat-ic" data-icon="coin"></span><h3>Payments collected for you</h3><p>Customers pay online. We settle every order to your bank in T+2 business days, with zero commission.</p></article>
+      <article class="feat tilt" data-reveal><span class="feat-ic" data-icon="refund"></span><h3>Refunds? We handle them</h3><p>Cancelled orders are refunded to the customer by Modulus Seventeen within 3 business days. No awkward follow-ups for you.</p></article>
+      <article class="feat tilt" data-reveal style="--d:.06s"><span class="feat-ic" data-icon="scooter"></span><h3>Safe, assured delivery</h3><p>Assign your own delivery partner from SELL. The customer’s OTP confirms every hand-over — no more “I never got it”.</p></article>
+      <article class="feat tilt" data-reveal style="--d:.12s"><span class="feat-ic" data-icon="gift"></span><h3>Offers that grow baskets</h3><p>Free-delivery thresholds, discounts and free gifts gently nudge customers to add a little more to every order.</p></article>
+    </div>
+    <div class="stores-cta" data-reveal>
+      <a class="btn btn-cream btn-arrow magnetic" href="setup.html"><span>Create My BUY Store</span><span class="btn-arrow-circle"><img src="assets/m17/arrow-right.svg" width="24" height="24" alt=""></span></a>
+      <p>Already using SELL? Turn on BUY whenever you’re ready.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOME BUSINESSES ============ -->
+<section class="homebiz" id="home">
+  <div class="sec-head">
+    <span class="eyebrow" data-reveal>Home &amp; Online-only Businesses</span>
+    <h2 class="sec-title" data-split>No Shopfront? <span class="t-red">No Problem.</span></h2>
+    <p class="sec-sub" data-reveal>Some of India’s best food and products come out of home kitchens and living rooms. BUY gives home-run and online-only businesses a real storefront — with payments, delivery tracking and refunds built in.</p>
+  </div>
+  <div class="hb-grid">
+    <article class="hb" data-reveal><div class="hb-ic" data-icon="pot"></div><h3>Home kitchens &amp; tiffins</h3><p>Daily meal plans, weekend specials and festive orders — taken properly, paid upfront.</p></article>
+    <article class="hb" data-reveal style="--d:.06s"><div class="hb-ic" data-icon="bowl"></div><h3>Cloud kitchens &amp; restaurants</h3><p>Your menu on your own page. No marketplace commission eating into every plate.</p></article>
+    <article class="hb" data-reveal style="--d:.12s"><div class="hb-ic" data-icon="cake"></div><h3>Home bakers &amp; sweet makers</h3><p>Cakes by the kg, sweets by the box — with custom quantities customers can type in.</p></article>
+    <article class="hb" data-reveal><div class="hb-ic" data-icon="dress"></div><h3>Instagram boutiques</h3><p>Turn “DM for price” into a real catalogue with sizes, stock and checkout.</p></article>
+    <article class="hb" data-reveal style="--d:.06s"><div class="hb-ic" data-icon="jar"></div><h3>Pickles, masalas &amp; staples</h3><p>Homemade goodness, packed with care and delivered with an OTP.</p></article>
+    <article class="hb" data-reveal style="--d:.12s"><div class="hb-ic" data-icon="gift"></div><h3>Handmade &amp; gifting</h3><p>Crafts, candles and hampers — reach customers well beyond your street.</p></article>
+  </div>
+</section>
+
+<!-- ============ MARKETPLACE ============ -->
+<section class="market" id="marketplace">
+  <div class="sec-head">
+    <span class="eyebrow" data-reveal>The Vision</span>
+    <h2 class="sec-title" data-split>Today, One Store Link. <span class="t-red">Tomorrow, a Marketplace.</span></h2>
+  </div>
+  <div class="mk-grid">
+    <article class="mk-card mk-now" data-reveal="left">
+      <span class="mk-badge live"><i></i>Live now</span>
+      <h3>Every store gets its own BUY page</h3>
+      <p>Stores share their link wherever their customers already are. Customers tap, browse and order directly from that store.</p>
+      <div class="link-pill"><span class="lp-ic"><img src="assets/m17/logo-buy.svg" alt=""></span><span class="lp-url">Your store’s BUY link</span><button class="lp-copy" type="button">Share</button></div>
+      <div class="share-to"><span>Instagram bio</span><span>WhatsApp status</span><span>Counter QR</span><span>Google profile</span></div>
+      <div class="mk-standee">
+        <div class="qr" id="mkQr"><span>ORDER ON BUY</span></div>
+        <p><b>Print it. Stick it. Sell more.</b>Put your BUY QR on the counter, the shutter or the delivery bag. Walk-in customers become online regulars.</p>
+      </div>
+    </article>
+    <article class="mk-card mk-soon" data-reveal="right">
+      <span class="mk-badge soon"><i></i>Coming soon</span>
+      <h3>The BUY Marketplace</h3>
+      <p>One place to discover every online shop and offline store listed on BUY — explore what’s around you, compare, and order from all of them.</p>
+      <div class="mk-search"><img src="assets/fig/ic-search.svg" alt=""><span>Search stores, dishes or products near you</span></div>
+      <div class="mk-filters" role="group" aria-label="Marketplace filters">
+        <button class="on" data-f="all">All</button><button data-f="near">Near me</button><button data-f="online">Online-only</button><button data-f="home">Home kitchens</button><button data-f="open">Open now</button>
+      </div>
+      <div class="mk-map" id="mkMap">
+        <div class="mk-you" aria-hidden="true"><span></span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ COMING NEXT ============ -->
+<section class="next" id="next">
+  <div class="sec-head">
+    <span class="eyebrow" data-reveal>Next Launch</span>
+    <h2 class="sec-title" data-split>What’s <span class="t-red">Coming Next</span></h2>
+    <p class="sec-sub" data-reveal>A complete local shopping experience — affordable, trusted, and built around the shops, bakeries and home kitchens you already love.</p>
+  </div>
+  <div class="nf-grid">
+    <article class="nf" data-reveal style="--d:0.00s"><div class="nf-top"><div class="nf-art" data-icon="phone"></div><span class="nf-tag">Soon</span></div><h3>BUY app for Android &amp; iOS</h3><p>One app for every local shop you love.</p><ul><li>Browse every store listed on BUY</li><li>Save favourites and reorder in a tap</li><li>Live order tracking with push alerts</li></ul></article>
+    <article class="nf" data-reveal style="--d:0.06s"><div class="nf-top"><div class="nf-art" data-icon="cart"></div><span class="nf-tag">Next</span></div><h3>The BUY Marketplace</h3><p>Discover shops, cloud kitchens and bakeries near you.</p><ul><li>Search across all stores at once</li><li>Filters: near me, open now, home kitchens</li><li>Ratings from real neighbours</li></ul></article>
+    <article class="nf" data-reveal style="--d:0.12s"><div class="nf-top"><div class="nf-art" data-icon="refund"></div><span class="nf-tag">Next</span></div><h3>Returns &amp; damage reports</h3><p>Fair, photo-proof resolutions.</p><ul><li>Report damaged items with photos</li><li>Request returns when the store allows</li><li>Refund status right in your order</li></ul></article>
+    <article class="nf" data-reveal style="--d:0.18s"><div class="nf-top"><div class="nf-art" data-icon="flower"></div><span class="nf-tag">Next</span></div><h3>Full store profiles</h3><p>Know your store before you order.</p><ul><li>Timings, open days and offers</li><li>All offline branches with maps</li><li>Call or WhatsApp the store directly</li></ul></article>
+    <article class="nf" data-reveal style="--d:0.00s"><div class="nf-top"><div class="nf-art" data-icon="clock"></div><span class="nf-tag">Soon</span></div><h3>Schedule &amp; pre-order</h3><p>Festive boxes and cakes, on time.</p><ul><li>Pick a delivery date and slot</li><li>Bulk orders for functions and offices</li><li>Reminders before it arrives</li></ul></article>
+    <article class="nf" data-reveal style="--d:0.06s"><div class="nf-top"><div class="nf-art" data-icon="tiffin"></div><span class="nf-tag">Soon</span></div><h3>Subscriptions</h3><p>Daily tiffin, milk or weekly sweets.</p><ul><li>Pause or skip any day</li><li>Auto-pay, cancel anytime</li><li>Made for home kitchens</li></ul></article>
+    <article class="nf" data-reveal style="--d:0.12s"><div class="nf-top"><div class="nf-art" data-icon="coin"></div><span class="nf-tag">Soon</span></div><h3>Rewards &amp; store offers</h3><p>Loyalty that stays local.</p><ul><li>Points on every order</li><li>Store coupons and free gifts</li><li>Refer a friend, both save</li></ul></article>
+    <article class="nf" data-reveal style="--d:0.18s"><div class="nf-top"><div class="nf-art" data-icon="bell"></div><span class="nf-tag">Soon</span></div><h3>Store pickup &amp; chat</h3><p>Your way, every time.</p><ul><li>Order online, pick up at the counter</li><li>Chat with the store about your order</li><li>Order updates on WhatsApp</li></ul></article>
+  </div>
+</section>
+
+<!-- ============ MODULUS SEVENTEEN ============ -->
+<section class="eco" id="m17">
+  <div class="eco-card" data-reveal="zoom">
+    <div class="eco-vis" aria-hidden="true">
+      <div class="eco-node sell"><img src="assets/m17/logo-sell.svg" alt=""><small>for the store</small></div>
+      <div class="eco-wire"><span></span><span></span><span></span></div>
+      <div class="eco-node buy"><img src="assets/m17/logo-buy.svg" alt=""><small>for the customer</small></div>
+    </div>
+    <div class="eco-copy">
+      <span class="eyebrow">Part of a bigger ecosystem</span>
+      <h2>BUY is a product of <span class="t-blue">Modulus Seventeen</span></h2>
+      <p>Stores run their counter, stock, staff and deliveries on <b>SELL</b>. <b>BUY</b> brings their customers online. Together they make India’s most affordable business ecosystem — online and offline, in sync.</p>
+      <div class="eco-ctas">
+        <a class="btn btn-black btn-arrow magnetic" href="https://modulusseventeen.com" target="_blank" rel="noopener"><span>Visit Modulus Seventeen</span><span class="btn-arrow-circle"><img src="assets/m17/arrow-right.svg" width="24" height="24" alt=""></span></a>
+        <a class="btn btn-outline" href="https://modulusseventeen.com/#try" target="_blank" rel="noopener">Explore SELL ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="sec-head">
+    <span class="eyebrow" data-reveal>FAQ</span>
+    <h2 class="sec-title" data-split>Common <span class="t-red">Questions</span></h2>
+  </div>
+  <div class="faq-tabs" role="tablist" data-reveal>
+    <button role="tab" class="on" aria-selected="true" data-tab="shop">For Shoppers</button>
+    <button role="tab" aria-selected="false" data-tab="store">For Stores</button>
+    <span class="faq-ind" aria-hidden="true"></span>
+  </div>
+  <div class="faq-panel on" data-panel="shop">
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">01</span>How do I order from a store on BUY?<i></i></button><div class="qa-a"><p>Open your store’s BUY link — from their Instagram bio, WhatsApp status or the QR at their counter. Browse, add to cart and pay online in a few taps.</p></div></div>
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">02</span>How can I pay, and is it safe?<i></i></button><div class="qa-a"><p>Pay with UPI, cards or net banking. Payments go to the Modulus Seventeen payment gateway first — never straight to an unknown account — and are held securely until your order is completed or cancelled.</p></div></div>
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">03</span>What is the delivery OTP?<i></i></button><div class="qa-a"><p>Every order gets a delivery OTP on BUY. Share it with the delivery partner only when you’ve received your items — the order is marked delivered once that OTP is entered.</p></div></div>
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">04</span>What happens if my order is cancelled?<i></i></button><div class="qa-a"><p>Whether you cancel or the store does, we handle the refund and credit it to your original payment method within 3 business days.</p></div></div>
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">05</span>Can I report a damaged item or return a product?<i></i></button><div class="qa-a"><p>It’s coming in our next launch. You’ll be able to report a problem with photo proof right from your order, and request a return when the store allows returns. Till then, you can reach the store directly from your order.</p></div></div>
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">06</span>How do I discover more stores?<i></i></button><div class="qa-a"><p>Today, each store shares its own BUY link. Soon, the BUY Marketplace will let you explore every online shop and offline store listed on BUY, all in one place.</p></div></div>
+  </div>
+  <div class="faq-panel" data-panel="store">
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">01</span>Is there a commission on BUY orders?<i></i></button><div class="qa-a"><p>No. BUY charges zero commission on your orders — you keep what you earn on every single sale.</p></div></div>
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">02</span>When do I get paid for online orders?<i></i></button><div class="qa-a"><p>Customers pay through the Modulus Seventeen payment gateway, and we settle the amount to your registered bank account within 2 business days (T+2).</p></div></div>
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">03</span>Who handles refunds?<i></i></button><div class="qa-a"><p>We do. If an order is cancelled — by the customer or by you — Modulus Seventeen refunds the customer within 3 business days. You don’t have to chase anything.</p></div></div>
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">04</span>How does delivery work?<i></i></button><div class="qa-a"><p>You pack the order and assign your own delivery partner from SELL. The customer receives a delivery OTP on BUY, and the order is marked delivered once that OTP is entered.</p></div></div>
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">05</span>I run my business from home. Can I use BUY?<i></i></button><div class="qa-a"><p>Absolutely. Home kitchens, cloud kitchens, home bakers, tiffin services and online-only shops can all get their own BUY page — no physical shop needed.</p></div></div>
+    <div class="qa"><button class="qa-q" aria-expanded="false"><span class="qa-n">06</span>Do I need SELL to use BUY?<i></i></button><div class="qa-a"><p>BUY orders are managed from SELL — that’s where you pack, assign deliveries and see settlements. Start with SELL for free and turn on BUY whenever you’re ready to sell online.</p></div></div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="cta-final" id="cta">
+  <div class="cta-dolls" id="ctaDolls" aria-hidden="true"></div>
+  <h2 class="cta-title" data-split>Your Neighbourhood Is <span class="t-red">Open for Orders.</span></h2>
+  <p class="cta-sub" data-reveal>Shoppers — ask your favourite store for their BUY link. Stores — set up for free and start taking orders online today.</p>
+  <div class="cta-btns" data-reveal>
+    <a class="btn btn-red btn-arrow magnetic" href="setup.html"><span>List Your Store on BUY</span><span class="btn-arrow-circle"><img src="assets/m17/arrow-right.svg" width="24" height="24" alt=""></span></a>
+    <a class="btn btn-outline" href="experience.html">Try BUY as a Shopper</a>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-wordmark" aria-hidden="true"><span>Modulus</span><span class="fw-buy">BUY</span></div>
+  <div class="footer-row">
+    <a class="footer-brand" href="https://modulusseventeen.com" target="_blank" rel="noopener">
+      <img src="assets/m17/logo-buy.svg" width="96" height="48" alt="BUY">
+      <span class="footer-brand-text">
+        <span class="footer-brand-name">Modulus BUY</span>
+        <span class="footer-brand-tag">A product of Modulus Seventeen · Made in Bengaluru</span>
+      </span>
+    </a>
+    <div class="footer-links">
+      <div class="footer-col">
+        <a href="https://modulusseventeen.com/terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+        <a href="https://modulusseventeen.com/refund.html" target="_blank" rel="noopener">Cancellation &amp; Refund</a>
+        <a href="https://modulusseventeen.com/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
+      </div>
+      <div class="footer-col">
+        <a href="https://modulusseventeen.com" target="_blank" rel="noopener">Modulus Seventeen</a>
+        <a href="https://modulusseventeen.com/#try" target="_blank" rel="noopener">Modulus SELL</a>
+        <a href="https://modulusseventeen.com/about.html" target="_blank" rel="noopener">About Us</a>
+      </div>
+      <div class="footer-col">
+        <a href="https://instagram.com/modulusseventeen" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:hello@modulusseventeen.com">Email Us</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/pixel.js?v=5"></script>
+<!--BUY-JS-->
+<script src="js/buy/kit.js?v=5"></script>
+<script src="js/buy/home.js?v=5"></script>
+<script src="js/buy/sheets.js?v=5"></script>
+<script src="js/buy/product.js?v=5"></script>
+<script src="js/buy/variants.js?v=5"></script>
+<script src="js/buy/cart.js?v=5"></script>
+<script src="js/buy/address.js?v=5"></script>
+<script src="js/buy/order.js?v=5"></script>
+<script src="js/buy/orders.js?v=5"></script>
+<script src="js/buy/store.js?v=5"></script>
+<script src="js/buy/next.js?v=5"></script>
+<script src="js/buy-app.js?v=5"></script>
+<!--/BUY-JS-->
+<script src="js/main.js?v=5"></script>
+<script src="js/next.js?v=5"></script>
+<script src="js/story.js?v=5"></script>
+<script src="js/demo.js?v=5"></script>
+</body>
+</html>

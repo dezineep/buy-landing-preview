@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>BUY Screen Lab</title>
+<!-- Dev harness: renders one BUY app state at 1:1 design size for visual comparison with Figma.
+     lab.html?preset=cart            any preset from js/buy-app.js (lab.html?list shows them all)
+       &pid=gj                       preset argument (product id)
+       &sat=0                        safe-area top in px (default 0 here so screens line up with Figma frames)
+       &h=940                        root height (default 892)
+       &scroll=420                   scroll the screen before capture
+       &grid                         contact sheet of every preset at 50% -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css?v=5">
+<!--BUY-CSS-->
+<link rel="stylesheet" href="css/buy/base.css?v=5">
+<link rel="stylesheet" href="css/buy/home.css?v=5">
+<link rel="stylesheet" href="css/buy/sheets.css?v=5">
+<link rel="stylesheet" href="css/buy/product.css?v=5">
+<link rel="stylesheet" href="css/buy/variants.css?v=5">
+<link rel="stylesheet" href="css/buy/cart.css?v=5">
+<link rel="stylesheet" href="css/buy/address.css?v=5">
+<link rel="stylesheet" href="css/buy/order.css?v=5">
+<link rel="stylesheet" href="css/buy/orders.css?v=5">
+<link rel="stylesheet" href="css/buy/store.css?v=5">
+<link rel="stylesheet" href="css/buy/next.css?v=5">
+<!--/BUY-CSS-->
+<style>
+  html, body { margin: 0; background: #fff !important; overflow: hidden; }
+  body.g { overflow: auto; }
+  .grid { display: flex; flex-wrap: wrap; gap: 16px; padding: 16px; background: #888; font: 12px sans-serif; }
+  .cell { width: 206px; }
+  .cell b { display: block; color: #fff; margin-bottom: 4px; }
+  .frame { width: 206px; height: 446px; overflow: hidden; position: relative; background: #fff; }
+  .frame > .ba { transform: scale(.5); transform-origin: 0 0; }
+  ul { font: 14px sans-serif; }
+</style>
+</head>
+<body>
+<div id="host"></div>
+<!--BUY-JS-->
+<script src="js/buy/kit.js?v=5"></script>
+<script src="js/buy/home.js?v=5"></script>
+<script src="js/buy/sheets.js?v=5"></script>
+<script src="js/buy/product.js?v=5"></script>
+<script src="js/buy/variants.js?v=5"></script>
+<script src="js/buy/cart.js?v=5"></script>
+<script src="js/buy/address.js?v=5"></script>
+<script src="js/buy/order.js?v=5"></script>
+<script src="js/buy/orders.js?v=5"></script>
+<script src="js/buy/store.js?v=5"></script>
+<script src="js/buy/next.js?v=5"></script>
+<script src="js/buy-app.js?v=5"></script>
+<!--/BUY-JS-->
+<script>
+  const q = new URLSearchParams(location.search);
+  const host = document.getElementById('host');
+  if (q.has('list')) {
+    host.innerHTML = '<ul>' + BuyApp.PRESETS.map(p => `<li><a href="?preset=${p}">${p}</a></li>`).join('') + '</ul>';
+  } else if (q.has('grid')) {
+    host.className = 'grid'; document.body.classList.add('g');
+    BuyApp.PRESETS.forEach(p => {
+      const c = document.createElement('div'); c.className = 'cell';
+      c.innerHTML = `<b>${p}</b><div class="frame"><div></div></div>`;
+      host.append(c);
+      BuyApp.mountStatic(c.querySelector('.frame > div'), p, { sat: 0 });
+    });
+  } else {
+    const root = document.createElement('div');
+    host.append(root);
+    const h = +(q.get('h') || 892);
+    root.style.height = h + 'px';
+    const args = {}; ['pid', 'v'].forEach(k => q.has(k) && (args[k] = q.get(k)));
+    window.app = BuyApp.create(root, { preset: q.get('preset') || 'home', args, sat: +(q.get('sat') ?? 0) });
+    const sc = +(q.get('scroll') || 0);
+    if (sc) setTimeout(() => { const s = app.scroller(); s.scrollTop = sc; s.dispatchEvent(new Event('scroll')); }, 600);
+  }
+</script>
+</body>
+</html>

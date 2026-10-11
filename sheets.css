@@ -1,0 +1,39 @@
+/* BUY · SHEETS group — Figma 537:1987 (More Options), 1710:4493 (Amount Summary); offers list styled as Figma offer cards.
+   Sheet chrome (.ba-sheet radius, home bar, .ba-sh-h title row + .ba-x close) comes from base.css. */
+.bsh-body { padding: 0 16px; }
+.bsh .ba-sh-h { margin-top: 1px; }
+
+/* ---- More Options: profile row (Figma 537:2002) ---- */
+.bsh-prof { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.bsh-av { flex: none; display: grid; place-items: center; padding: 8px; border-radius: 50px; background: rgba(165, 34, 38, .1); }
+.bsh-av img, .bsh-tile-i img { display: block; width: 24px; height: 24px; }
+.bsh-who { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; line-height: 1.2; white-space: nowrap; }
+.bsh-who b { font-size: 16px; font-weight: 500; letter-spacing: -0.16px; color: #3b3b3b; overflow: hidden; text-overflow: ellipsis; }
+.bsh-who small { font-size: 12px; font-weight: 400; letter-spacing: -0.12px; color: #9f9f9f; }
+.bsh .bsh-edit { flex: none; display: flex; align-items: center; gap: 4px; padding: 0; background: none; font-size: 14px; font-weight: 500; line-height: 1.1; letter-spacing: -0.42px; color: #a52226; white-space: nowrap; }
+.bsh-edit img { width: 18px; height: 18px; }
+
+/* ---- More Options: 3x2 tile grid (Figma 537:2015) ---- */
+.bsh-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.bsh .bsh-tile { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 8px; background: #fdfdfd; border: 1px solid #e3e3e3; border-radius: 15px; text-align: left; transition: transform .15s; }
+.bsh .bsh-tile:active { transform: scale(.97); }
+.bsh-tile-i { display: flex; align-items: flex-start; gap: 16px; }
+.bsh-tile-i em { display: inline-flex; align-items: center; padding: 4px 8px; border-radius: 20px; background: rgba(1, 174, 15, .1); color: #01ae0f; font-style: normal; font-size: 8px; font-weight: 500; line-height: 1.1; letter-spacing: -0.24px; white-space: nowrap; }
+.bsh-tile-l { font-size: 16px; font-weight: 500; line-height: 1.3; letter-spacing: -0.32px; color: #878787; white-space: nowrap; }
+.bsh-tile.soon .bsh-tile-l { opacity: .5; }
+.bsh .bsh-tile.soon:active { transform: none; }
+
+/* ---- Amount Summary card (Figma 1710:4655) ---- */
+.bsh-amt { display: flex; flex-direction: column; gap: 8px; padding: 8px; margin-bottom: 32px; background: #fff; border: 1px solid #e2e2e2; border-radius: 15px; }
+.bsh-rows { display: flex; flex-direction: column; gap: 8px; }
+.bsh-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 14px; line-height: 1.1; letter-spacing: -0.28px; color: #716d6d; white-space: nowrap; }
+.bsh-row span:last-child { font-weight: 500; }
+.bsh-row .g { color: #01ae0f; }
+.bsh-dash { display: block; width: 100%; height: 1px; margin-bottom: -1px; } /* Figma line is 0-tall: keep 8+8 spacing */
+.bsh-tot { display: flex; justify-content: space-between; align-items: center; color: #000; white-space: nowrap; }
+.bsh-tot span { font-size: 16px; font-weight: 500; line-height: 1.1; letter-spacing: -0.32px; }
+.bsh-tot b { font-size: 20px; font-weight: 600; line-height: 1.2; }
+
+/* ---- Offers list (no frame; Figma offer-card atom .ba-of) ---- */
+.bsh-ofl { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.bsh-of { min-height: 58px; }

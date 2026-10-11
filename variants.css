@@ -1,0 +1,60 @@
+/* BUY · VARIANTS group — Figma: Select variant sheet 593-1779, Custom quantity sheet 577-1557.
+   Every rule is scoped under .bv-*. Sizes in 412-wide design px. */
+
+/* ---------- Select variant (593-1779) ---------- */
+.bv-rows { display: flex; flex-direction: column; gap: 16px; padding: 0 16px; }
+.bv-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 36px; padding-right: 1px; }
+.bv-l { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.bv-lab { flex: none; display: flex; align-items: center; justify-content: center; min-width: 80px; height: 36px; padding: 0 16px; border: 1px solid #e6e6e6; border-radius: 32px; color: var(--r); font-size: 16px; font-weight: 600; line-height: 1.1; letter-spacing: -0.4px; white-space: nowrap; }
+.bv-p { flex: none; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: 98px; }
+.bv-p .ba-price { gap: 2px; align-items: flex-end; }
+.bv-p .ba-price b { font-size: 20px; font-weight: 600; line-height: 1.2; letter-spacing: -0.5px; }
+.bv-p .ba-price s { font-size: 12px; letter-spacing: -0.3px; margin-bottom: 2px; }
+.bv-p small { font-size: 12px; font-weight: 500; line-height: 1.2; letter-spacing: -0.3px; color: #01ae0f; white-space: nowrap; }
+.bv-left { flex: none; font-style: normal; font-size: 12px; font-weight: 400; line-height: 1.2; letter-spacing: -0.3px; color: #e88b00; white-space: nowrap; }
+.bv-row .ba-oplus, .bv-row .ba-ostep { margin-right: 2px; }
+
+.bv-custom { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: calc(100% - 32px); margin: 24px 16px 0; padding: 8px; border: 1px solid #ececec !important; border-radius: 15px !important; background: #fff; text-align: left; }
+.bv-custom-t { display: flex; flex-direction: column; gap: 4px; width: 247px; min-width: 0; }
+.bv-custom-t b { font-size: 14px; font-weight: 500; line-height: 1.3; letter-spacing: -0.28px; color: var(--r); white-space: nowrap; }
+.bv-custom-t small { font-size: 10px; font-weight: 400; line-height: 1.5; letter-spacing: -0.2px; color: #6d6d6d; }
+.bv-go { flex: none; display: flex; align-items: center; padding: 8px 16px; border-radius: 35px; background: var(--pk3); }
+.bv-go img { display: block; width: 24px; height: 24px; }
+.bv-custom:active .bv-go { background: rgba(165, 34, 38, .18); }
+
+/* ---------- Custom quantity (577-1557) ---------- */
+.bv-cq { display: flex; flex-direction: column; padding: 0 16px; }
+.bv-fld { display: flex; flex-direction: column; gap: 4px; }
+.bv-lbl { display: flex; align-items: center; gap: 4px; line-height: 1.2; white-space: nowrap; }
+.bv-lbl span { font-size: 12px; font-weight: 500; letter-spacing: -0.3px; color: #000; }
+.bv-lbl b { font-size: 14px; font-weight: 700; color: #fb2c36; }
+.bv-in { display: flex; align-items: center; justify-content: space-between; padding: 8px 4px; border: 1px solid #c4c3c3; border-radius: 20px; background: #fff; }
+.bv-v { display: flex; align-items: center; padding: 4px; font-size: 16px; font-weight: 500; line-height: normal; letter-spacing: -0.48px; color: #454545; white-space: nowrap; }
+.bv-v i { font-style: normal; color: #b5b5b5; }
+.bv-caret { display: inline-block; width: 1.5px; height: 18px; margin-left: 1px; background: var(--r); animation: bv-blink 1s steps(1) infinite; }
+@keyframes bv-blink { 50% { opacity: 0; } }
+.bv-unit { display: flex; align-items: center; gap: 4px; border-radius: 24px; }
+.bv-unit button { display: flex; align-items: center; justify-content: center; min-width: 58px; padding: 8px 16px; border: 1px solid transparent !important; border-radius: 20px !important; font-size: 10px; font-weight: 500; line-height: 1.2; letter-spacing: -0.2px; color: #848484 !important; white-space: nowrap; }
+.bv-unit button.on { background: var(--pk3) !important; border-color: rgba(165, 34, 38, .2) !important; color: var(--r) !important; }
+.bv-unit button:not(.on) { min-width: 0; }
+.bv-tot { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-right: 3px; }
+.bv-tot > div { display: flex; flex-direction: column; gap: 4px; }
+.bv-tot small { font-size: 12px; font-weight: 500; line-height: 1.1; letter-spacing: -0.24px; color: var(--r); }
+.bv-tot b { font-size: 20px; font-weight: 600; line-height: 1.2; letter-spacing: -0.5px; color: #000; }
+.bv-tot .r { align-items: flex-end; text-align: right; }
+.bv-tot .r small { font-weight: 400; color: #979696; }
+.bv-tot .r span { font-size: 16px; font-weight: 500; line-height: 1.2; letter-spacing: -0.4px; color: #858585; }
+/* 80px Figma gap between totals and the button; the validation message lives inside it */
+.bv-err + .ba-btn { font-weight: 600; }
+.bv-err { height: 80px; margin: 0; padding-top: 8px; font-size: 12px; line-height: 1.2; color: #d13b40; }
+
+/* iOS number pad (Figma Keyboard 577-1558): 24px top inset, 3 x 48px keys, 6px gaps; extends under the sheet's home bar */
+.bv-keys { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 48px; gap: 6px; margin: 25px 0 -30.3px 1px; padding: 24px 6.67px 65px 7.67px; border-radius: 26px 26px 0 0; background: linear-gradient(#dbdee2, #e1e4e8 16px); font-family: -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif; }
+.bv-keys button { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 4px; border-radius: 9px !important; background: #fdfeff !important; color: #000 !important; transition: background .1s; }
+.bv-keys button span { font-size: 25px; font-weight: 400; line-height: 26px; }
+.bv-keys button small { min-height: 12px; font-size: 11px; font-weight: 700; line-height: 12px; letter-spacing: 2px; margin-right: -2px; }
+.bv-keys button.solo { justify-content: center; padding-top: 0; }
+.bv-keys button.bv-del { justify-content: center; padding: 0 1.4px 0 0; background: transparent !important; }
+.bv-keys button.bv-del img { display: block; width: 26px; height: 22px; }
+.bv-keys button:active { background: #c3c6cc !important; }
+.bv-keys button.bv-del:active { background: #fdfeff !important; }

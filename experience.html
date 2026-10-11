@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Experience BUY — Live Demo Store</title>
+<meta name="description" content="Try the full BUY flow: browse a sweet shop, unlock offers and pay online, then watch Madhuram Sweets prepare, pack and dispatch your order — and receive it with your delivery OTP.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/svg+xml" href="assets/m17/logo-buy.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css?v=5">
+<!--BUY-CSS-->
+<link rel="stylesheet" href="css/buy/base.css?v=5">
+<link rel="stylesheet" href="css/buy/home.css?v=5">
+<link rel="stylesheet" href="css/buy/sheets.css?v=5">
+<link rel="stylesheet" href="css/buy/product.css?v=5">
+<link rel="stylesheet" href="css/buy/variants.css?v=5">
+<link rel="stylesheet" href="css/buy/cart.css?v=5">
+<link rel="stylesheet" href="css/buy/address.css?v=5">
+<link rel="stylesheet" href="css/buy/order.css?v=5">
+<link rel="stylesheet" href="css/buy/orders.css?v=5">
+<link rel="stylesheet" href="css/buy/store.css?v=5">
+<link rel="stylesheet" href="css/buy/next.css?v=5">
+<!--/BUY-CSS-->
+<link rel="stylesheet" href="css/experience.css?v=5">
+</head>
+<body class="xp-body">
+<header class="xp-bar">
+  <a class="xp-back" href="index.html" aria-label="Back to BUY home"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M12 4l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back</span></a>
+  <a class="xp-brand" href="index.html"><img src="assets/m17/logo-buy.svg" width="72" height="36" alt="BUY"><span>Live Experience</span></a>
+  <ol class="xp-steps" id="xpSteps" aria-label="Demo progress"></ol>
+  <div class="xp-mstep" id="xpMStep" aria-hidden="true"><b id="xpMStepN">1/6</b><span id="xpMStepBar"></span></div>
+  <button class="xp-reset" id="xpReset" type="button" aria-label="Restart the demo"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M4 10a6 6 0 1 0 2-4.5M4 3v3.5h3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Restart</span></button>
+</header>
+
+<main class="xp-main">
+  <div class="xp-guide" id="xpGuide">
+    <div class="xp-guide-doll" id="guideDoll" aria-hidden="true"></div>
+    <div class="xp-guide-bubble" aria-live="polite"><span class="xp-guide-step" id="guideStep">Step 1 of 6</span><p id="guideText">Welcome to Madhuram Sweets!</p><button class="xp-guide-go" id="guideGo" type="button" hidden></button></div>
+  </div>
+
+  <section class="xp-customer" aria-label="Customer BUY app">
+    <div class="xp-label"><i></i><b>You, the customer</b><span>BUY app · madhuram-sweets</span></div>
+    <div class="xp-phone" id="xpPhone"><div class="xp-notch"></div><div class="xp-screen" id="xpScreen"><div id="buyApp"></div></div></div>
+  </section>
+
+  <section class="xp-stage" id="xpStage" aria-label="Madhuram Sweets, live">
+    <button class="xs-pip" id="xsPip" type="button" aria-label="Show the live shop"></button>
+    <div class="xs-head">
+      <span class="xs-shop" id="xsShopIc"></span>
+      <div class="xs-name"><b>Madhuram Sweets</b><small>Koramangala · the shop, live</small></div>
+      <span class="xs-live"><i></i>Live</span>
+      <button class="xs-min" id="xsMin" type="button" aria-label="Minimise the live shop"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="xs-view" id="xsView" role="img" aria-label="Pixel animation of Madhuram Sweets preparing and delivering your order"></div>
+    <ol class="xs-chips" id="xsChips" aria-label="Order progress at the shop"></ol>
+    <div class="xs-cap" aria-live="polite">
+      <b class="xs-title" id="xsTitle">Madhuram Sweets is open</b>
+      <p class="xs-text" id="xsText"></p>
+      <div class="xs-cta" id="xsCta" hidden>
+        <button class="xs-again" id="xsAgain" type="button">Place another order</button>
+        <a class="xs-create" href="setup.html">Create my BUY store</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="xo" id="xpOtp" hidden>
+  <div class="xo-dim" id="xoDim"></div>
+  <div class="xo-sheet" id="xoSheet">
+    <div class="xo-peek" aria-hidden="true"><div class="xo-peek-doll" id="xoPeekDoll"></div><span class="xo-peek-say">Hi! I’m <b>Suresh</b>. May I have your <b>delivery OTP</b>, please?</span></div>
+    <div class="xo-card" id="xoCard" role="dialog" aria-modal="false" aria-labelledby="xoTitle" aria-describedby="xoSub">
+      <button class="xo-grab" id="xoGrab" type="button" aria-label="Show or hide the OTP pad"><i></i></button>
+      <div class="xo-h">
+        <img src="assets/m17/avatar-delivery-sq.png" width="44" height="44" alt="">
+        <div><b id="xoTitle">Suresh yadav · Delivery app</b><small id="xoSub">Enter the 4-digit OTP the customer shares at the door</small></div>
+      </div>
+      <div class="xo-in" id="xoIn"></div>
+      <p class="xo-msg" id="xoMsg" role="status"></p>
+      <p class="xo-hint">The OTP is on the customer’s order screen in BUY.</p>
+      <button class="xo-view" id="xoView" type="button"><span class="xo-view-ic" aria-hidden="true"></span>View OTP in app</button>
+      <button class="xo-btn" id="xoBtn" type="button" disabled><span class="xo-btn-ic" aria-hidden="true"></span>Mark as Delivered</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/pixel.js?v=5"></script>
+<!--BUY-JS-->
+<script src="js/buy/kit.js?v=5"></script>
+<script src="js/buy/home.js?v=5"></script>
+<script src="js/buy/sheets.js?v=5"></script>
+<script src="js/buy/product.js?v=5"></script>
+<script src="js/buy/variants.js?v=5"></script>
+<script src="js/buy/cart.js?v=5"></script>
+<script src="js/buy/address.js?v=5"></script>
+<script src="js/buy/order.js?v=5"></script>
+<script src="js/buy/orders.js?v=5"></script>
+<script src="js/buy/store.js?v=5"></script>
+<script src="js/buy/next.js?v=5"></script>
+<script src="js/buy-app.js?v=5"></script>
+<!--/BUY-JS-->
+<script src="js/delivery-scene.js?v=5"></script>
+<script src="js/experience.js?v=5"></script>
+</body>
+</html>

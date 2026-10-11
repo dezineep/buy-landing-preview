@@ -1,0 +1,60 @@
+/* BUY · ADDRESS group — Figma: Address selection 730-2743 ("Address Details Screen"). Every rule scoped under .bd */
+
+/* header: Figma gap 9, subtitle #989898 -0.24 */
+.bd .ba-head { gap: 9px; }
+.bd .ba-head-t small { color: #989898; letter-spacing: -0.24px; line-height: 1.1; }
+
+/* body column (Figma 730:2757): 16px sides, 24px between groups; header already carries the 24px gap above */
+.bd-body { display: flex; flex-direction: column; gap: 24px; padding: 0 16px; }
+.bd-top { display: flex; flex-direction: column; gap: 8px; }
+.bd .bd-search { border-color: #ddd; }
+
+/* map (730:2771): 270 tall, 1px #b3b1b1, radius 14; pin 36x39 at 148,89; button at 159,218 */
+.bd-map { position: relative; height: 270px; }
+.bd-map-img { position: relative; height: 100%; border: 1px solid #b3b1b1; border-radius: 14px; overflow: hidden; }
+.bd-map-img > img:first-child { display: block; width: 100%; height: 100%; object-fit: cover; }
+.bd-pin { position: absolute; left: 147px; top: 88px; width: 36px; height: 39px; }
+.bd-pin.drop { animation: bd-pindrop .7s cubic-bezier(.34, 1.56, .64, 1); }
+@keyframes bd-pindrop { from { transform: translateY(-60px); } }
+
+/* "Use Current Location" (730:2777): white, 1px red, radius 10, padding 10 16, gap 8, hard shadow 2px 3px, 18px icon, 16/500 red */
+.ba .bd button.bd-loc { position: absolute; left: 159px; top: 218px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 16px; background: #fff; border: 1px solid #a52226; border-radius: 10px; box-shadow: 2px 3px 0 #000;
+  font-family: inherit; font-size: 16px; font-weight: 500; line-height: 18px; box-sizing: border-box; height: 40px; letter-spacing: -0.48px; color: #a52226;
+  white-space: nowrap; flex: none; cursor: pointer; }
+.ba .bd button.bd-loc:active { transform: translate(1px, 1px); box-shadow: 1px 2px 0 #000; }
+.bd-loc-ic { position: relative; flex: none; width: 18px; height: 18px; }
+.bd-loc-ic img { position: absolute; left: 0.5625px; top: 0.5625px; width: 16.875px; height: 16.875px; }
+
+/* form (730:2793): groups gap 8; label 12/500 lh20 -0.3; box padding 16, 1px #e4e4e4, radius 20, 16px lh1.2 -0.4 */
+.bd-form { display: flex; flex-direction: column; gap: 8px; }
+.bd-f { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.bd-l { font-size: 12px; font-weight: 500; line-height: 20px; letter-spacing: -0.3px; color: #000; white-space: nowrap; }
+.bd .bd-in { display: block; width: 100%; height: auto; margin: 0; padding: 16px; border: 1px solid #e4e4e4; border-radius: 20px; background: #fff;
+  font-family: inherit; font-size: 16px; font-weight: 400; line-height: 1.2; letter-spacing: -0.4px; color: #3c3c3c; outline: 0;
+  -webkit-appearance: none; appearance: none; box-shadow: none; }
+.bd .bd-in::placeholder { color: #939393; opacity: 1; }
+.bd .bd-in:focus { border-color: #a52226; }
+.bd-two { display: flex; gap: 8px; }
+.bd-two > .bd-f { flex: 1 1 0; }
+.bd-sel { position: relative; display: block; }
+.bd .bd-sel .bd-in { padding-right: 42px; cursor: pointer; }
+.bd-sel img { position: absolute; right: 16px; top: 50%; margin-top: -9px; pointer-events: none; }
+.bd .ba-err { margin: 0; min-height: 0; }
+.bd .ba-err:empty { display: none; }
+
+/* delivery charge row (763:2697) */
+.bd-del { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.bd-del-l { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.bd-del-l > img { flex: none; }
+.bd-del-t { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: 133px; }
+.bd-tag { padding: 2px 6px; border-radius: 33px; background: rgba(165, 34, 38, .1); color: #a52226; font-size: 8px; line-height: 1.2; letter-spacing: -0.2px; white-space: nowrap; }
+.bd-del-v { display: flex; flex-direction: column; gap: 2px; width: 100%; }
+.bd-del-v b { font-size: 20px; font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; color: #a52226; }
+.bd-del-v small { font-size: 10px; line-height: 1.2; letter-spacing: -0.25px; color: #7a7a7a; white-space: nowrap; }
+.bd-del-r { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; width: 142px; flex: none; }
+.bd-del-r p { margin: 0; font-size: 10px; line-height: 1.4; letter-spacing: -0.25px; color: #939393; text-align: right; white-space: nowrap; }
+
+/* footer (730:2744): items top-aligned; subtitle plain #585858 12px */
+.bd .bd-foot { align-items: flex-start; }
+.bd .bd-foot .ba-amt small { font-weight: 400; line-height: 1.2; letter-spacing: 0; color: #585858; text-decoration: none; }
